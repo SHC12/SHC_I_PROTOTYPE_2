@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">SPK</string>
+    <string name="login">Login</string>
+    <string name="register">Register</string>
+    <string name="infoApp">
+        Aplikasi Siaga dan Patroli berbasis android ini dibuat sebagai implementasi dari skripsi di Program Studi Teknik Informatika Fakultas Komputer Universitas Muhammad Thamrin Jakarta Tahun 2020.\n\n
+        Dahlan Hidayat
+    </string>
+
+    <string name="prompt">Pilih Lokasi</string>
+</resources>

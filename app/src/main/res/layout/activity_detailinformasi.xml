@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".anggota.Detailinformasi">
+
+    <include
+        android:id="@+id/include3"
+        layout="@layout/toolbar" />
+
+    <TextView
+        android:id="@+id/title_detail_jadwal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:textAlignment="center"
+        android:text="Detail Informasi"
+        android:textColor="@android:color/black"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/include3" />
+
+    <TableLayout
+        android:id="@+id/tableLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/title_detail_jadwal">
+
+
+
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_weight="1"
+            android:gravity="left">
+
+            <TextView
+                android:layout_width="10dp"
+                android:layout_height="match_parent"
+                android:layout_weight=".05"
+                android:background="@drawable/table_content_cell_bg"
+                android:text="Tanggal"
+                android:textColor="@android:color/black" />
+
+            <TextView
+                android:id="@+id/tanggalDetaiInfo"
+                android:layout_width="20dp"
+                android:text="01-05-2020"
+                android:layout_height="wrap_content"
+                android:background="@drawable/table_content_cell_bg"
+                android:textColor="@android:color/black" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:gravity="left">
+
+            <TextView
+                android:layout_width="150dp"
+                android:layout_height="match_parent"
+                android:layout_weight=".05"
+                android:background="@drawable/table_content_cell_bg"
+                android:text="Judul "
+                android:textColor="@android:color/black" />
+
+            <TextView
+                android:id="@+id/lamaDetailInfo"
+                android:layout_width="220dp"
+                android:layout_height="wrap_content"
+                android:text="Perubahan Struktur Danru"
+                android:background="@drawable/table_content_cell_bg"
+                android:textColor="@android:color/black" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:gravity="left">
+
+            <TextView
+                android:layout_width="150dp"
+                android:layout_height="match_parent"
+                android:layout_weight=".05"
+                android:background="@drawable/table_content_cell_bg"
+                android:text="Sumber"
+                android:textColor="@android:color/black" />
+
+            <TextView
+                android:id="@+id/sumberDetailInfo"
+                android:layout_width="220dp"
+                android:layout_height="match_parent"
+                android:text="Admin"
+                android:background="@drawable/table_content_cell_bg"
+                android:textColor="@android:color/black" />
+        </TableRow>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                >
+
+                <ScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/table_content_cell_bg">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:maxHeight="120dp"
+                        android:text="Perubahan Struktur Danru diubah menjadi berikut:\n1. Kepala Danru diganti menjadi Pak Suherman\n2. Kepala Danru yang lama menjadi anggota"/>
+                </ScrollView>
+
+            </LinearLayout>
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+            android:background="@drawable/table_content_cell_bg"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                >
+                    <TextView
+                        android:text="File : strukturdanru.pdf"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:maxHeight="60dp"/>
+
+
+            </LinearLayout>
+
+
+
+
+
+    </TableLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

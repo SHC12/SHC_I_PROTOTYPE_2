@@ -1,0 +1,351 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".danru.DetailCutiDanru">
+
+        <include
+            android:id="@+id/include3"
+            layout="@layout/toolbar" />
+
+        <TextView
+            android:id="@+id/title_detail_jadwal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:text="Detail Riwayat Pengajuan Cuti"
+            android:textColor="@android:color/black"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/include3" />
+
+        <TableLayout
+            android:id="@+id/tableLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/title_detail_jadwal">
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_weight="1"
+                android:background="@drawable/table_header_cell_bg"
+                android:gravity="left">
+
+                <TextView
+                    android:id="@+id/tx_id_pengajuan"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/table_header_cell_bg"
+                    android:text="ID Pengajuan : CUTI 001"
+                    android:textColor="@android:color/white"
+                    android:textStyle="bold" />
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_weight="1"
+                android:gravity="left">
+
+                <TextView
+                    android:layout_width="10dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight=".05"
+                    android:background="@drawable/table_content_cell_bg"
+                    android:text="Tanggal"
+                    android:textColor="@android:color/black" />
+
+                <TextView
+                    android:id="@+id/tanggalDetailCuti"
+                    android:layout_width="20dp"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/table_content_cell_bg"
+                    android:text="10-05-2020"
+                    android:textColor="@android:color/black" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:gravity="left">
+
+                <TextView
+                    android:layout_width="150dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight=".05"
+                    android:background="@drawable/table_content_cell_bg"
+                    android:text="Nama "
+                    android:textColor="@android:color/black" />
+
+                <TextView
+                    android:id="@+id/namaDetailCuti"
+                    android:layout_width="220dp"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/table_content_cell_bg"
+                    android:text="2"
+                    android:textColor="@android:color/black" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:gravity="left">
+
+                <TextView
+                    android:layout_width="150dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight=".05"
+                    android:background="@drawable/table_content_cell_bg"
+                    android:text="Jabatan"
+                    android:textColor="@android:color/black" />
+
+                <TextView
+                    android:id="@+id/jabatanDetailCuti"
+                    android:layout_width="220dp"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/table_content_cell_bg"
+                    android:text="2"
+                    android:textColor="@android:color/black" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:gravity="left">
+
+                <TextView
+                    android:layout_width="150dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight=".05"
+                    android:background="@drawable/table_content_cell_bg"
+                    android:text="Lokasi Kerja"
+                    android:textColor="@android:color/black" />
+
+                <TextView
+                    android:id="@+id/lokasiDetailCuti"
+                    android:layout_width="220dp"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/table_content_cell_bg"
+                    android:text="2"
+                    android:textColor="@android:color/black" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:gravity="left">
+
+                <TextView
+                    android:layout_width="150dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight=".05"
+                    android:background="@drawable/table_content_cell_bg"
+                    android:text="Lama "
+                    android:textColor="@android:color/black" />
+
+                <TextView
+                    android:id="@+id/lamaDetailCuti"
+                    android:layout_width="220dp"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/table_content_cell_bg"
+                    android:text="2"
+                    android:textColor="@android:color/black" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:gravity="left">
+
+                <TextView
+                    android:layout_width="150dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight=".05"
+                    android:background="@drawable/table_content_cell_bg"
+                    android:text="Alasan"
+                    android:textColor="@android:color/black" />
+
+                <TextView
+                    android:id="@+id/alasanDetailCuti"
+                    android:layout_width="220dp"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/table_content_cell_bg"
+                    android:text="Keperluan Keluarga"
+                    android:textColor="@android:color/black" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:gravity="left">
+
+                <TextView
+                    android:layout_width="150dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight=".05"
+                    android:background="@drawable/table_content_cell_bg"
+                    android:text="Mulai"
+                    android:textColor="@android:color/black" />
+
+                <TextView
+                    android:id="@+id/mulaiDetailCuti"
+                    android:layout_width="220dp"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/table_content_cell_bg"
+                    android:text="15-05-2020"
+                    android:textColor="@android:color/black" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:gravity="left">
+
+                <TextView
+                    android:layout_width="150dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight=".05"
+                    android:background="@drawable/table_content_cell_bg"
+                    android:text="Selesai"
+                    android:textColor="@android:color/black" />
+
+                <TextView
+                    android:id="@+id/selesaiDetailCuti"
+                    android:layout_width="220dp"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/table_content_cell_bg"
+                    android:text="16-05-2020"
+                    android:textColor="@android:color/black" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:gravity="left">
+
+                <TextView
+                    android:layout_width="150dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight=".05"
+                    android:background="@drawable/table_content_cell_bg"
+                    android:text="Kembali Bekerja"
+                    android:textColor="@android:color/black" />
+
+                <TextView
+                    android:id="@+id/kembaliKerjaDetailCuti"
+                    android:layout_width="220dp"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/table_content_cell_bg"
+                    android:text="17-05-2020"
+                    android:textColor="@android:color/black" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:gravity="left">
+
+                <TextView
+                    android:layout_width="150dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight=".05"
+                    android:background="@drawable/table_content_cell_bg"
+                    android:text="Kontak"
+                    android:textColor="@android:color/black" />
+
+                <TextView
+                    android:id="@+id/kontakDetailCuti"
+                    android:layout_width="220dp"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/table_content_cell_bg"
+                    android:text="089766231311"
+                    android:textColor="@android:color/black" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:gravity="left"
+                android:minHeight="150dp">
+
+                <TextView
+                    android:layout_width="150dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight=".05"
+                    android:background="@drawable/table_content_cell_bg"
+                    android:text="Keterangan"
+                    android:textColor="@android:color/black" />
+
+                <TextView
+                    android:id="@+id/keteranganDetailCuti"
+                    android:layout_width="220dp"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/table_content_cell_bg"
+                    android:text="Laporan dan pergantian patroli sudah dikoordinasikan dengan teman anggota"
+                    android:textColor="@android:color/black" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:gravity="left">
+
+                <TextView
+                    android:layout_width="150dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight=".05"
+                    android:background="@drawable/table_content_cell_bg"
+                    android:text="Status"
+                    android:textColor="@android:color/black" />
+
+                <Spinner
+                    android:id="@+id/statusDetailCuti"
+                    android:layout_width="220dp"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/table_content_cell_bg"
+                    android:text="089766231311"
+                    android:textColor="@android:color/black" />
+            </TableRow>
+        </TableLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.mobile.spk">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".admin.TambahMitra"></activity>
+        <activity android:name=".admin.MitraActivity" />
+        <activity android:name=".admin.DetailDataAnggota" />
+        <activity android:name=".admin.DataAnggota" />
+        <activity android:name=".admin.HomeAdmin" />
+        <activity android:name=".danru.DetailCutiDanru" />
+        <activity android:name=".danru.CutiDanruActivity" />
+        <activity android:name=".danru.DetailLaporanDanru" />
+        <activity android:name=".danru.LaporanPatroliDanru" />
+        <activity android:name=".danru.DaftarAbsensiHariIni" />
+        <activity android:name=".danru.AbsensiDanru" />
+        <activity android:name=".danru.FormInputJadwal" />
+        <activity android:name=".danru.JadwalPersonalDanru" />
+        <activity android:name=".danru.DetailJadwalUmumGedung" />
+        <activity android:name=".danru.DetailJadwalUmumBulan" />
+        <activity android:name=".danru.DetailJadwalHariIni" />
+        <activity android:name=".danru.JadwalHariIniActivity" />
+        <activity android:name=".danru.HomeDanru" />
+        <activity android:name=".anggota.FormInformasi" />
+        <activity android:name=".anggota.Detailinformasi" />
+        <activity android:name=".anggota.InformasiActivity" />
+        <activity android:name=".anggota.DetailFormAjuanCuti" />
+        <activity android:name=".anggota.FormAjukanCuti" />
+        <activity android:name=".anggota.CutiActivity" />
+        <activity android:name=".anggota.DetailJadwalUmumPergedung" />
+        <activity android:name=".anggota.DetailJadwalUmum" />
+        <activity android:name=".anggota.JadwalUmum" />
+        <activity android:name=".anggota.DetailjadwalPersonal" />
+        <activity android:name=".anggota.JadwalPersonal" />
+        <activity android:name=".anggota.FormGedung" />
+        <activity android:name=".anggota.PatroliActivity" />
+        <activity android:name=".anggota.FormAbsensi" />
+        <activity android:name=".anggota.ScanBarcodeActivity" />
+        <activity android:name=".anggota.AbsensiAnggota" />
+        <activity android:name=".anggota.HomeAnggota" />
+        <activity android:name=".InfoAplikasiActivity" />
+        <activity android:name=".RegisterActivity" />
+        <activity android:name=".LoginActivity" />
+        <activity android:name=".SplashActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".MenuLoginActivity" />
+    </application>
+
+</manifest>

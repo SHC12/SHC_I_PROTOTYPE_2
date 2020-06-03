@@ -1,0 +1,697 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    >
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".danru.DetailLaporanDanru">
+        <include
+            android:id="@+id/include3"
+            layout="@layout/toolbar" />
+
+        <TextView
+            android:id="@+id/title_detail_jadwal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:textAlignment="center"
+            android:text="Laporan Patroli\nTanggal 01-05-2020"
+            android:textColor="@android:color/black"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/include3" />
+
+        <TableLayout
+            android:id="@+id/tableGedungA"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/title_detail_jadwal">
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_weight="1"
+                android:background="@drawable/table_header_cell_bg"
+                android:gravity="left">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/table_header_cell_bg"
+                    android:text="Gedung A"
+                    android:id="@+id/tx_id_pengajuan"
+                    android:textColor="@android:color/white"
+                    android:textStyle="bold" />
+
+            </TableRow>
+
+            <TableRow
+                >
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3"
+                    android:layout_marginLeft="20dp"
+                    android:gravity="center"
+                    android:background="@drawable/table_content_cell_bg"
+                    android:text="Lantai 1"
+                    android:textColor="@android:color/black" />
+
+                <TextView
+                    android:id="@+id/status_lantai1ga"
+                    android:layout_width="0dp"
+                    android:text="Aman"
+                    android:gravity="center"
+                    android:layout_weight="3"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/table_content_cell_bg"
+                    android:textColor="@android:color/black" />
+
+                <TextView
+                    android:id="@+id/file_lantai1ga"
+                    android:layout_width="0dp"
+                    android:text="file.dasdpg"
+                    android:layout_marginRight="20dp"
+                    android:gravity="center"
+                    android:layout_weight="4"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/table_content_cell_bg"
+                    android:textColor="@android:color/black" />
+            </TableRow>  <TableRow
+                >
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3"
+                    android:layout_marginLeft="20dp"
+                    android:gravity="center"
+                    android:background="@drawable/table_content_cell_bg"
+                    android:text="Lantai 2"
+                    android:textColor="@android:color/black" />
+
+                <TextView
+                    android:id="@+id/status_lantai2ga"
+                    android:layout_width="0dp"
+                    android:text="Aman"
+                    android:gravity="center"
+                    android:layout_weight="3"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/table_content_cell_bg"
+                    android:textColor="@android:color/black" />
+
+                <TextView
+                    android:id="@+id/file_lantai2ga"
+                    android:layout_width="0dp"
+                    android:text="file.dasdpg"
+                    android:layout_marginRight="20dp"
+                    android:gravity="center"
+                    android:layout_weight="4"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/table_content_cell_bg"
+                    android:textColor="@android:color/black" />
+            </TableRow>  <TableRow
+                >
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3"
+                    android:layout_marginLeft="20dp"
+                    android:gravity="center"
+                    android:background="@drawable/table_content_cell_bg"
+                    android:text="Lantai 3"
+                    android:textColor="@android:color/black" />
+
+                <TextView
+                    android:id="@+id/status_lantai3ga"
+                    android:layout_width="0dp"
+                    android:text="Aman"
+                    android:gravity="center"
+                    android:layout_weight="3"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/table_content_cell_bg"
+                    android:textColor="@android:color/black" />
+
+                <TextView
+                    android:id="@+id/file_lantai3ga"
+                    android:layout_width="0dp"
+                    android:text="file.dasdpg"
+                    android:layout_marginRight="20dp"
+                    android:gravity="center"
+                    android:layout_weight="4"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/table_content_cell_bg"
+                    android:textColor="@android:color/black" />
+            </TableRow>  <TableRow
+                >
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3"
+                    android:layout_marginLeft="20dp"
+                    android:gravity="center"
+                    android:background="@drawable/table_content_cell_bg"
+                    android:text="Lantai 4"
+                    android:textColor="@android:color/black" />
+
+                <TextView
+                    android:id="@+id/status_lantai4ga"
+                    android:layout_width="0dp"
+                    android:text="Aman"
+                    android:gravity="center"
+                    android:layout_weight="3"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/table_content_cell_bg"
+                    android:textColor="@android:color/black" />
+
+                <TextView
+                    android:id="@+id/file_lantai4ga"
+                    android:layout_width="0dp"
+                    android:text="file.dasdpg"
+                    android:layout_marginRight="20dp"
+                    android:gravity="center"
+                    android:layout_weight="4"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/table_content_cell_bg"
+                    android:textColor="@android:color/black" />
+            </TableRow>
+            <TableRow
+                >
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3"
+                    android:layout_marginLeft="20dp"
+                    android:gravity="center"
+                    android:background="@drawable/table_content_cell_bg"
+                    android:text="Lantai 5"
+                    android:textColor="@android:color/black" />
+
+                <TextView
+                    android:id="@+id/status_lantai5ga"
+                    android:layout_width="0dp"
+                    android:text="Aman"
+                    android:gravity="center"
+                    android:layout_weight="3"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/table_content_cell_bg"
+                    android:textColor="@android:color/black" />
+
+                <TextView
+                    android:id="@+id/file_lantai5ga"
+                    android:layout_width="0dp"
+                    android:text="file.dasdpg"
+                    android:layout_marginRight="20dp"
+                    android:gravity="center"
+                    android:layout_weight="4"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/table_content_cell_bg"
+                    android:textColor="@android:color/black" />
+            </TableRow>
+
+
+        </TableLayout>
+
+        <TableLayout
+            android:id="@+id/tableGedungB"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/tableGedungA">
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_weight="1"
+                android:background="@drawable/table_header_cell_bg"
+                android:gravity="left">
+
+                <TextView
+                    android:id="@+id/tx_gedung"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/table_header_cell_bg"
+                    android:text="Gedung B"
+                    android:textColor="@android:color/white"
+                    android:textStyle="bold" />
+
+            </TableRow>
+
+            <TableRow>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_weight="3"
+                    android:background="@drawable/table_content_cell_bg"
+                    android:gravity="center"
+                    android:text="Lantai 1"
+                    android:textColor="@android:color/black" />
+
+                <TextView
+                    android:id="@+id/status_lantai1gb"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="3"
+                    android:background="@drawable/table_content_cell_bg"
+                    android:gravity="center"
+                    android:text="Aman"
+                    android:textColor="@android:color/black" />
+
+                <TextView
+                    android:id="@+id/file_lantai1gb"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="20dp"
+                    android:layout_weight="4"
+                    android:background="@drawable/table_content_cell_bg"
+                    android:gravity="center"
+                    android:text="file.dasdpg"
+                    android:textColor="@android:color/black" />
+            </TableRow>
+
+            <TableRow>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_weight="3"
+                    android:background="@drawable/table_content_cell_bg"
+                    android:gravity="center"
+                    android:text="Lantai 2"
+                    android:textColor="@android:color/black" />
+
+                <TextView
+                    android:id="@+id/status_lantai2gb"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="3"
+                    android:background="@drawable/table_content_cell_bg"
+                    android:gravity="center"
+                    android:text="Aman"
+                    android:textColor="@android:color/black" />
+
+                <TextView
+                    android:id="@+id/file_lantai2"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="20dp"
+                    android:layout_weight="4"
+                    android:background="@drawable/table_content_cell_bg"
+                    android:gravity="center"
+                    android:text="file.dasdpg"
+                    android:textColor="@android:color/black" />
+            </TableRow>
+
+            <TableRow>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_weight="3"
+                    android:background="@drawable/table_content_cell_bg"
+                    android:gravity="center"
+                    android:text="Lantai 3"
+                    android:textColor="@android:color/black" />
+
+                <TextView
+                    android:id="@+id/status_lantai3gb"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="3"
+                    android:background="@drawable/table_content_cell_bg"
+                    android:gravity="center"
+                    android:text="Aman"
+                    android:textColor="@android:color/black" />
+
+                <TextView
+                    android:id="@+id/file_lanta1bgb"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="20dp"
+                    android:layout_weight="4"
+                    android:background="@drawable/table_content_cell_bg"
+                    android:gravity="center"
+                    android:text="file.dasdpg"
+                    android:textColor="@android:color/black" />
+            </TableRow>
+
+            <TableRow>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_weight="3"
+                    android:background="@drawable/table_content_cell_bg"
+                    android:gravity="center"
+                    android:text="Lantai 1b"
+                    android:textColor="@android:color/black" />
+
+                <TextView
+                    android:id="@+id/status_lantai1bgb"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="3"
+                    android:background="@drawable/table_content_cell_bg"
+                    android:gravity="center"
+                    android:text="Aman"
+                    android:textColor="@android:color/black" />
+
+                <TextView
+                    android:id="@+id/file_lantai1bgb"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="20dp"
+                    android:layout_weight="4"
+                    android:background="@drawable/table_content_cell_bg"
+                    android:gravity="center"
+                    android:text="file.dasdpg"
+                    android:textColor="@android:color/black" />
+            </TableRow>
+
+            <TableRow>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_weight="3"
+                    android:background="@drawable/table_content_cell_bg"
+                    android:gravity="center"
+                    android:text="Lantai 2b"
+                    android:textColor="@android:color/black" />
+
+                <TextView
+                    android:id="@+id/status_lantai2bgb"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="3"
+                    android:background="@drawable/table_content_cell_bg"
+                    android:gravity="center"
+                    android:text="Aman"
+                    android:textColor="@android:color/black" />
+
+                <TextView
+                    android:id="@+id/file_lantai2bgb"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="20dp"
+                    android:layout_weight="4"
+                    android:background="@drawable/table_content_cell_bg"
+                    android:gravity="center"
+                    android:text="file.dasdpg"
+                    android:textColor="@android:color/black" />
+            </TableRow>
+
+
+        </TableLayout>
+
+
+        <TableLayout
+            android:id="@+id/tableGedungC"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/tableGedungB">
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_weight="1"
+                android:background="@drawable/table_header_cell_bg"
+                android:gravity="left">
+
+                <TextView
+                    android:id="@+id/tx_gedungc"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/table_header_cell_bg"
+                    android:text="Gedung C"
+                    android:textColor="@android:color/white"
+                    android:textStyle="bold" />
+
+            </TableRow>
+
+            <TableRow>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_weight="3"
+                    android:background="@drawable/table_content_cell_bg"
+                    android:gravity="center"
+                    android:text="Lantai 1"
+                    android:textColor="@android:color/black" />
+
+                <TextView
+                    android:id="@+id/status_lantai1gc"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="3"
+                    android:background="@drawable/table_content_cell_bg"
+                    android:gravity="center"
+                    android:text="Aman"
+                    android:textColor="@android:color/black" />
+
+                <TextView
+                    android:id="@+id/file_lantai1gc"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="20dp"
+                    android:layout_weight="4"
+                    android:background="@drawable/table_content_cell_bg"
+                    android:gravity="center"
+                    android:text="file.dasdpg"
+                    android:textColor="@android:color/black" />
+            </TableRow>
+
+            <TableRow>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_weight="3"
+                    android:background="@drawable/table_content_cell_bg"
+                    android:gravity="center"
+                    android:text="Lantai 2"
+                    android:textColor="@android:color/black" />
+
+                <TextView
+                    android:id="@+id/status_lantai2gc"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="3"
+                    android:background="@drawable/table_content_cell_bg"
+                    android:gravity="center"
+                    android:text="Aman"
+                    android:textColor="@android:color/black" />
+
+                <TextView
+                    android:id="@+id/file_lantai2c"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="20dp"
+                    android:layout_weight="4"
+                    android:background="@drawable/table_content_cell_bg"
+                    android:gravity="center"
+                    android:text="file.dasdpg"
+                    android:textColor="@android:color/black" />
+            </TableRow>
+
+            <TableRow>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_weight="3"
+                    android:background="@drawable/table_content_cell_bg"
+                    android:gravity="center"
+                    android:text="Lantai 3"
+                    android:textColor="@android:color/black" />
+
+                <TextView
+                    android:id="@+id/status_lantai3gc"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="3"
+                    android:background="@drawable/table_content_cell_bg"
+                    android:gravity="center"
+                    android:text="Aman"
+                    android:textColor="@android:color/black" />
+
+                <TextView
+                    android:id="@+id/file_lanta1bgc"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="20dp"
+                    android:layout_weight="4"
+                    android:background="@drawable/table_content_cell_bg"
+                    android:gravity="center"
+                    android:text="file.dasdpg"
+                    android:textColor="@android:color/black" />
+            </TableRow>
+
+            <TableRow>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_weight="3"
+                    android:background="@drawable/table_content_cell_bg"
+                    android:gravity="center"
+                    android:text="Lantai 4"
+                    android:textColor="@android:color/black" />
+
+                <TextView
+                    android:id="@+id/status_lantai4gc"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="3"
+                    android:background="@drawable/table_content_cell_bg"
+                    android:gravity="center"
+                    android:text="Aman"
+                    android:textColor="@android:color/black" />
+
+                <TextView
+                    android:id="@+id/file_lantai4gc"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="20dp"
+                    android:layout_weight="4"
+                    android:background="@drawable/table_content_cell_bg"
+                    android:gravity="center"
+                    android:text="file.dasdpg"
+                    android:textColor="@android:color/black" />
+            </TableRow>
+
+            <TableRow>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_weight="3"
+                    android:background="@drawable/table_content_cell_bg"
+                    android:gravity="center"
+                    android:text="Lantai 5"
+                    android:textColor="@android:color/black" />
+
+                <TextView
+                    android:id="@+id/status_lantai5gc"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="3"
+                    android:background="@drawable/table_content_cell_bg"
+                    android:gravity="center"
+                    android:text="Aman"
+                    android:textColor="@android:color/black" />
+
+                <TextView
+                    android:id="@+id/file_lantai5gc"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="20dp"
+                    android:layout_weight="4"
+                    android:background="@drawable/table_content_cell_bg"
+                    android:gravity="center"
+                    android:text="file.dasdpg"
+                    android:textColor="@android:color/black" />
+            </TableRow>
+
+            <TableRow>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_weight="3"
+                    android:background="@drawable/table_content_cell_bg"
+                    android:gravity="center"
+                    android:text="Lantai 6"
+                    android:textColor="@android:color/black" />
+
+                <TextView
+                    android:id="@+id/status_lantai6gc"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="3"
+                    android:background="@drawable/table_content_cell_bg"
+                    android:gravity="center"
+                    android:text="Aman"
+                    android:textColor="@android:color/black" />
+
+                <TextView
+                    android:id="@+id/file_lantai6gc"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="20dp"
+                    android:layout_weight="4"
+                    android:background="@drawable/table_content_cell_bg"
+                    android:gravity="center"
+                    android:text="file.dasdpg"
+                    android:textColor="@android:color/black" />
+            </TableRow>
+
+            <TableRow>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_weight="3"
+                    android:background="@drawable/table_content_cell_bg"
+                    android:gravity="center"
+                    android:text="Lantai 7"
+                    android:textColor="@android:color/black" />
+
+                <TextView
+                    android:id="@+id/status_lantai7gc"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="3"
+                    android:background="@drawable/table_content_cell_bg"
+                    android:gravity="center"
+                    android:text="Aman"
+                    android:textColor="@android:color/black" />
+
+                <TextView
+                    android:id="@+id/file_lantai7gc"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="20dp"
+                    android:layout_weight="4"
+                    android:background="@drawable/table_content_cell_bg"
+                    android:gravity="center"
+                    android:text="file.dasdpg"
+                    android:textColor="@android:color/black" />
+            </TableRow>
+
+
+        </TableLayout>
+
+
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

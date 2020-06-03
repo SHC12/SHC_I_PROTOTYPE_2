@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".danru.JadwalHariIniActivity">
+
+
+    <include
+        android:id="@+id/include7"
+        layout="@layout/toolbar" />
+
+    <TextView
+        android:id="@+id/textView12"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:textAlignment="center"
+        android:text="Lihat Jadwal Hari Ini\nTanggal : 10 Mei 2020"
+        android:textColor="@android:color/black"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/include7" />
+
+    <TextView
+        android:id="@+id/textView11"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:text="Pilih Gedung Kampus"
+        android:textAlignment="center"
+        android:textColor="@android:color/black"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:orientation="vertical"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/include7">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnGedungA"
+            style="@style/Widget.MaterialComponents.Button.Icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Gedung A"
+            android:onClick="toGedungA"
+            android:padding="20dp"
+            app:icon="@drawable/ic_baseline_location_city_24" />
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnGedungB"
+            style="@style/Widget.MaterialComponents.Button.Icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Gedung B"
+            android:onClick="toGedungA"
+            android:padding="20dp"
+            app:icon="@drawable/ic_baseline_location_city_24" />
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnGedungC"
+            style="@style/Widget.MaterialComponents.Button.Icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Gedung C"
+            android:onClick="toGedungA"
+            android:padding="20dp"
+            app:icon="@drawable/ic_baseline_location_city_24" />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnJadwalUmum"
+            style="@style/Widget.MaterialComponents.Button.Icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="20dp"
+            android:maxEms="10"
+            android:onClick="toJadwalUmumDanru"
+            android:backgroundTint="@color/colorYellow"
+            android:layout_margin="10dp"
+            android:text="Jadwal umum"
+            app:icon="@drawable/ic_baseline_location_city_24" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnJadwalPersonal"
+            style="@style/Widget.MaterialComponents.Button.Icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="20dp"
+            android:maxEms="10"
+            android:onClick="toJadwalPersonalDanru"
+            android:backgroundTint="@color/colorYellow"
+            android:layout_margin="10dp"
+            android:text="Jadwal Personal"
+            app:icon="@drawable/ic_baseline_location_city_24" />
+
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
