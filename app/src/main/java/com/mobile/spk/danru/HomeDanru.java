@@ -9,6 +9,7 @@ import android.view.View;
 import com.mobile.spk.MenuLoginActivity;
 import com.mobile.spk.R;
 import com.mobile.spk.anggota.HomeAnggota;
+import com.mobile.spk.anggota.InformasiActivity;
 import com.mobile.spk.anggota.JadwalUmum;
 
 public class HomeDanru extends AppCompatActivity {
@@ -38,5 +39,17 @@ public class HomeDanru extends AppCompatActivity {
 
     public void toJadwalPersonalHomeDanru(View view) {
         startActivity(new Intent(HomeDanru.this,JadwalPersonalDanru.class));
+    }
+
+    public void toPatroli(View view) {
+        startActivity(new Intent(HomeDanru.this,LaporanPatroliDanru.class));
+    }
+
+    public void toCutiDanru(View view) {
+        startActivity(new Intent(HomeDanru.this,CutiDanruActivity.class));
+    }
+
+    public void toInformasi(View view) {
+        startActivity(new Intent(HomeDanru.this, InformasiActivity.class));
     }
 }

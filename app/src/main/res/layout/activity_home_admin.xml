@@ -72,6 +72,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:text="Data Anggota"
+                android:onClick="toDataAnggota"
                 app:icon="@drawable/absen"
                 app:iconSize="20dp" />
 
@@ -80,6 +81,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Mitra"
+                android:onClick="toMitra"
                 app:icon="@drawable/patroli"
                 app:iconSize="20dp" />
 
@@ -88,6 +90,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Cuti"
+                android:onClick="toCutiAdmin"
                 app:icon="@drawable/jadwal_personal"
                 app:iconSize="20dp" />
 
@@ -97,6 +100,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Informasi"
+                android:onClick="toInformasi"
                 app:icon="@drawable/info"
                 app:iconSize="20dp" />
 
@@ -105,6 +109,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Logout"
+                android:onClick="toLogout"
                 android:layout_gravity="bottom"
                 app:icon="@drawable/logoutt"
                 app:iconSize="20dp" />

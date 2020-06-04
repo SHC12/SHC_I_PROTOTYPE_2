@@ -36,6 +36,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="20dp"
         android:text="Tambah Mitra"
+        android:onClick="toTambahMitra"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/recyclerView2" />
 

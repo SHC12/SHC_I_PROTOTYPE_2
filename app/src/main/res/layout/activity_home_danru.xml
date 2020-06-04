@@ -80,6 +80,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Patroli"
+                android:onClick="toPatroli"
                 app:icon="@drawable/patroli"
                 app:iconSize="20dp" />
 
@@ -115,6 +116,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Cuti"
+                android:onClick="toCutiDanru"
                 app:icon="@drawable/cuti"
                 app:iconSize="20dp" />
 
@@ -123,6 +125,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Informasi"
+                android:onClick="toInformasi"
                 app:icon="@drawable/info"
                 app:iconSize="20dp" />
 
