@@ -29,7 +29,42 @@
         android:layout_margin="20dp"
         app:layout_constraintTop_toBottomOf="@+id/textView18"
         tools:layout_editor_absoluteX="20dp" />
+    <TextView
+        android:id="@+id/textView10"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:text="Form Tambah Mitra"
+        android:textColor="@android:color/black"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@+id/recyclerView2"
+        tools:layout_editor_absoluteX="20dp" />
 
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/layout_nama_mitra"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:hint="Nama Mitra"
+        android:textColorHint="@android:color/black"
+        app:boxStrokeColor="@color/colorPrimary"
+        app:hintAnimationEnabled="true"
+        app:hintTextColor="@color/colorPrimary"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView10">
+
+        <EditText
+            android:id="@+id/in_nama_mitra"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:focusableInTouchMode="false"
+            android:inputType="text"
+            android:textColor="@android:color/black"
+            android:textSize="18sp" />
+    </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.button.MaterialButton
         android:layout_width="wrap_content"
@@ -38,6 +73,6 @@
         android:text="Tambah Mitra"
         android:onClick="toTambahMitra"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/recyclerView2" />
+        app:layout_constraintTop_toBottomOf="@+id/layout_nama_mitra" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

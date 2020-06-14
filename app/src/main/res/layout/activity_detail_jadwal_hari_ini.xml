@@ -65,7 +65,7 @@
         android:textSize="15sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/recyclerView" />
+        app:layout_constraintTop_toBottomOf="@+id/rv_detail_jadwal_hari_ini" />
 
     <TextView
         android:layout_width="match_parent"

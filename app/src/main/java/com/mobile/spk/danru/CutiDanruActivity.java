@@ -11,6 +11,8 @@ import android.view.View;
 import com.mobile.spk.R;
 import com.mobile.spk.adapter.TableAdapterCutiDanru;
 import com.mobile.spk.adapter.TableAdapterPatroli;
+import com.mobile.spk.anggota.FormAbsensi;
+import com.mobile.spk.anggota.FormAjukanCuti;
 import com.mobile.spk.model.CutiDanru;
 import com.mobile.spk.model.PatroliModel;
 
@@ -47,5 +49,9 @@ public class CutiDanruActivity extends AppCompatActivity {
 
 
         return data;
+    }
+
+    public void toAjukanCuti(View view) {
+        startActivity(new Intent(CutiDanruActivity.this, FormAjukanCuti.class));
     }
 }

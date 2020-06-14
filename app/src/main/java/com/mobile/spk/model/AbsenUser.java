@@ -5,15 +5,26 @@ public class AbsenUser {
     private String tanggal;
     private String jam;
     private String status;
+    private String SF;
 
-    public AbsenUser(String no, String tanggal, String jam, String status) {
+
+    public AbsenUser(String no, String tanggal, String jam, String status, String SF) {
         this.no = no;
         this.tanggal = tanggal;
         this.jam = jam;
         this.status = status;
+        this.SF = SF;
     }
 
     public AbsenUser() {
+    }
+
+    public String getSF() {
+        return SF;
+    }
+
+    public void setSF(String SF) {
+        this.SF = SF;
     }
 
     public String getNo() {

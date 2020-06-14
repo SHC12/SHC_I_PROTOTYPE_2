@@ -42,7 +42,7 @@ public class MitraActivity extends AppCompatActivity {
     private List<Mitra> getData(){
         List<Mitra> data = new ArrayList<>();
         data.add(new Mitra("1","Universitas M.H ", "Jakarta Timur"));
-        data.add(new Mitra("2","Bintaro", "Jakarta Selatan"));
+        data.add(new Mitra("2","Bintaro Mansion", "Jakarta Selatan"));
         data.add(new Mitra("3","Rumkit Bhayangkara Brimob", "Depok"));
 
 

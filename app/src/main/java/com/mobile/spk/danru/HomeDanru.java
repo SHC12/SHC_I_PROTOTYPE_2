@@ -8,16 +8,19 @@ import android.view.View;
 
 import com.mobile.spk.MenuLoginActivity;
 import com.mobile.spk.R;
+import com.mobile.spk.admin.HomeAdmin;
 import com.mobile.spk.anggota.HomeAnggota;
 import com.mobile.spk.anggota.InformasiActivity;
 import com.mobile.spk.anggota.JadwalUmum;
 
 public class HomeDanru extends AppCompatActivity {
-
+    String username;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_danru);
+
+        username = getIntent().getStringExtra("username");
     }
 
     public void LogoutDanru(View view) {
@@ -26,7 +29,9 @@ public class HomeDanru extends AppCompatActivity {
     }
 
     public void toAbsensiDanru(View view) {
-        startActivity(new Intent(getApplicationContext(),AbsensiDanru.class));
+        Intent in = new Intent(HomeDanru.this, AbsensiDanru.class);
+        in.putExtra("username", username);
+        startActivity(in);
     }
 
     public void toJadwalHariIni(View view) {

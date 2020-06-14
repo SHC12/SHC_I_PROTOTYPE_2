@@ -27,9 +27,14 @@ public class LoginActivity extends AppCompatActivity {
                 if(username.getText().toString().equals("user")){
                     startActivity(new Intent(LoginActivity.this, HomeAnggota.class));
                 } else if(username.getText().toString().equals("danru")){
-                    startActivity(new Intent(LoginActivity.this, HomeDanru.class));
+                    Intent in = new Intent(LoginActivity.this, HomeDanru.class);
+                    in.putExtra("username", "Danru");
+                    startActivity(in);
                 }else if(username.getText().toString().equals("admin")){
-                    startActivity(new Intent(LoginActivity.this, HomeAdmin.class));
+//                    startActivity(new Intent(LoginActivity.this, HomeAdmin.class));
+                    Intent in = new Intent(LoginActivity.this, HomeAdmin.class);
+                    in.putExtra("username", "Admin");
+                    startActivity(in);
                 }
             }
         });

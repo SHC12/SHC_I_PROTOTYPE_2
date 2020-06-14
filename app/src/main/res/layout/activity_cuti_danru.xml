@@ -40,10 +40,19 @@
         android:text="Klik pada isian nama untuk melihat detail"
         android:textColor="@android:color/black"
         android:textSize="15sp"
-        app:layout_constraintTop_toBottomOf="@+id/rv_jadwal_personal_anggota"
+        app:layout_constraintTop_toBottomOf="@+id/rv_cuti_danru"
         tools:layout_editor_absoluteX="20dp" />
 
-
+    <com.google.android.material.button.MaterialButton
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="40dp"
+        android:layout_marginTop="76dp"
+        android:text="Ajukan Cuti"
+        android:onClick="toAjukanCuti"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView14" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -46,17 +46,20 @@ public class TableAdapterAbsenUser extends RecyclerView.Adapter {
             rowViewHolder.txtNo.setBackgroundResource(R.drawable.table_header_cell_bg);
             rowViewHolder.txtTanggal.setBackgroundResource(R.drawable.table_header_cell_bg);
             rowViewHolder.txtJam.setBackgroundResource(R.drawable.table_header_cell_bg);
+            rowViewHolder.txtSF.setBackgroundResource(R.drawable.table_header_cell_bg);
             rowViewHolder.txtStatus.setBackgroundResource(R.drawable.table_header_cell_bg);
 
             rowViewHolder.txtNo.setTextColor(Color.WHITE);
             rowViewHolder.txtTanggal.setTextColor(Color.WHITE);
             rowViewHolder.txtJam.setTextColor(Color.WHITE);
+            rowViewHolder.txtSF.setTextColor(Color.WHITE);
             rowViewHolder.txtStatus.setTextColor(Color.WHITE);
 
             rowViewHolder.txtNo.setText("No");
             rowViewHolder.txtTanggal.setText("Tanggal");
             rowViewHolder.txtJam.setText("Jam");
-            rowViewHolder.txtStatus.setText("Status");
+            rowViewHolder.txtSF.setText("SF");
+            rowViewHolder.txtStatus.setText("ST");
         } else {
             AbsenUser modal = absen.get(rowPos - 1);
 
@@ -64,15 +67,18 @@ public class TableAdapterAbsenUser extends RecyclerView.Adapter {
             rowViewHolder.txtTanggal.setBackgroundResource(R.drawable.table_content_cell_bg);
             rowViewHolder.txtJam.setBackgroundResource(R.drawable.table_content_cell_bg);
             rowViewHolder.txtStatus.setBackgroundResource(R.drawable.table_content_cell_bg);
+            rowViewHolder.txtSF.setBackgroundResource(R.drawable.table_content_cell_bg);
 
             rowViewHolder.txtNo.setTextColor(Color.BLACK);
             rowViewHolder.txtTanggal.setTextColor(Color.BLACK);
             rowViewHolder.txtJam.setTextColor(Color.BLACK);
             rowViewHolder.txtStatus.setTextColor(Color.BLACK);
+            rowViewHolder.txtSF.setTextColor(Color.BLACK);
             rowViewHolder.txtNo.setText(modal.getNo() + "");
             rowViewHolder.txtTanggal.setText(modal.getTanggal()+"");
             rowViewHolder.txtJam.setText(modal.getJam()+"");
-            rowViewHolder.txtStatus.setText(modal.getStatus()+"");
+            rowViewHolder.txtStatus.setText(modal.getSF()+"");
+            rowViewHolder.txtSF.setText(modal.getStatus()+"");
 
         }
     }
@@ -87,13 +93,15 @@ public class TableAdapterAbsenUser extends RecyclerView.Adapter {
         TextView txtTanggal;
         TextView txtJam;
         TextView txtStatus;
+        TextView txtSF;
 
         RowViewHolder(View itemView) {
             super(itemView);
             txtNo = itemView.findViewById(R.id.txt_no);
             txtTanggal = itemView.findViewById(R.id.txt_tanggal);
             txtJam = itemView.findViewById(R.id.txt_jam);
-            txtStatus = itemView.findViewById(R.id.txt_status);
+            txtStatus = itemView.findViewById(R.id.txt_st);
+            txtSF = itemView.findViewById(R.id.txt_sf);
         }
 
 

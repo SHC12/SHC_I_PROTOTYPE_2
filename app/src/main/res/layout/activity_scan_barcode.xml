@@ -26,7 +26,7 @@
         android:id="@+id/textView9"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="NOTE : KDOE ABSEN HARIAN ADA PADA APLIKASI DANRU"
+        android:text="NOTE : KODE ABSEN HARIAN ADA PADA APLIKASI DANRU"
         android:textAlignment="center"
         android:textColor="@color/colorPrimary"
         android:textSize="20sp"

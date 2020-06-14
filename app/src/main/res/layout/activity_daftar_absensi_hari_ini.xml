@@ -36,7 +36,7 @@
         tools:layout_editor_absoluteX="20dp" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_jadwal_personal_anggota"
+        android:id="@+id/rv_absen_hari_ini"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="20dp"

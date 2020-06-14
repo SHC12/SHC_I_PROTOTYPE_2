@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.mobile.spk.R;
+import com.mobile.spk.anggota.JadwalUmum;
 
 public class JadwalHariIniActivity extends AppCompatActivity {
 
@@ -17,7 +18,7 @@ public class JadwalHariIniActivity extends AppCompatActivity {
     }
 
     public void toJadwalUmumDanru(View view) {
-        startActivity(new Intent(JadwalHariIniActivity.this,DetailJadwalUmumBulan.class));
+        startActivity(new Intent(JadwalHariIniActivity.this, JadwalUmum.class));
     }
 
     public void toJadwalPersonalDanru(View view) {

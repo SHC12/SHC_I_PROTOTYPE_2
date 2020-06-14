@@ -40,21 +40,21 @@
         android:text="Klik pada tanggal untuk melihat laporan"
         android:textColor="@android:color/black"
         android:textSize="15sp"
-        app:layout_constraintTop_toBottomOf="@+id/rv_jadwal_personal_anggota"
-        tools:layout_editor_absoluteX="20dp" />
+        app:layout_constraintTop_toBottomOf="@+id/rv_patroli_danru"
+        tools:layout_editor_absoluteX="66dp" />
 
 
-    <TextView
-        android:id="@+id/textView15"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="20dp"
-        android:text="NOTES : JADWAL BISA BERUBAH SEWAKTU-WAKTU"
-        android:textColor="@color/colorPrimary"
-        android:textSize="15sp"
-        android:textStyle="italic"
-        android:textAlignment="center"
-        app:layout_constraintBottom_toBottomOf="parent"
-        tools:layout_editor_absoluteX="20dp" />
+    <!--    <TextView-->
+<!--        android:id="@+id/textView15"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_margin="20dp"-->
+<!--        android:text="NOTES : JADWAL BISA BERUBAH SEWAKTU-WAKTU"-->
+<!--        android:textColor="@color/colorPrimary"-->
+<!--        android:textSize="15sp"-->
+<!--        android:textStyle="italic"-->
+<!--        android:textAlignment="center"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        tools:layout_editor_absoluteX="20dp" />-->
 
 </androidx.constraintlayout.widget.ConstraintLayout>

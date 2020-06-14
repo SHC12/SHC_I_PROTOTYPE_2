@@ -88,28 +88,28 @@
                 style="@style/Widget.MaterialComponents.Button.TextButton.Icon"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Jadwal Hari Ini"
+                android:text="Jadwal"
                 android:onClick="toJadwalHariIni"
                 app:icon="@drawable/jadwal_personal"
                 app:iconSize="20dp" />
 
-            <com.google.android.material.button.MaterialButton
-                style="@style/Widget.MaterialComponents.Button.TextButton.Icon"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Jadwal Personal"
-                android:onClick="toJadwalPersonalHomeDanru"
-                app:icon="@drawable/jadwal_personal"
-                app:iconSize="20dp" />
+<!--            <com.google.android.material.button.MaterialButton-->
+<!--                style="@style/Widget.MaterialComponents.Button.TextButton.Icon"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="Jadwal Personal"-->
+<!--                android:onClick="toJadwalPersonalHomeDanru"-->
+<!--                app:icon="@drawable/jadwal_personal"-->
+<!--                app:iconSize="20dp" />-->
 
-            <com.google.android.material.button.MaterialButton
-                style="@style/Widget.MaterialComponents.Button.TextButton.Icon"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Jadwal Umum"
-                android:onClick="toJadwalUmum"
-                app:icon="@drawable/jadwal_umum"
-                app:iconSize="20dp" />
+<!--            <com.google.android.material.button.MaterialButton-->
+<!--                style="@style/Widget.MaterialComponents.Button.TextButton.Icon"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="Jadwal Umum"-->
+<!--                android:onClick="toJadwalUmum"-->
+<!--                app:icon="@drawable/jadwal_umum"-->
+<!--                app:iconSize="20dp" />-->
 
             <com.google.android.material.button.MaterialButton
                 style="@style/Widget.MaterialComponents.Button.TextButton.Icon"

@@ -38,9 +38,9 @@ public class AbsensiAnggota extends AppCompatActivity {
 
     private List<AbsenUser> getAbsen(){
         List<AbsenUser> absen = new ArrayList<>();
-        absen.add(new AbsenUser("1","2020-05-30", "08:00", "Hadir"));
-        absen.add(new AbsenUser("2","2020-05-30", "09:00", "Ijin"));
-        absen.add(new AbsenUser("3","2020-05-30", "10:00","Tidak Hadir"));
+        absen.add(new AbsenUser("1","2020-05-30", "08:00", "1", "1"));
+        absen.add(new AbsenUser("2","2020-05-30", "09:00",  "2", "0"));
+        absen.add(new AbsenUser("3","2020-05-30", "10:00","2", "0"));
         return absen;
     }
 }

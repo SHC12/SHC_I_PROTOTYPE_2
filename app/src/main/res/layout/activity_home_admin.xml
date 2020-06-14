@@ -71,6 +71,25 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
+                android:text="Data Absensi"
+                android:onClick="toDataAbsensi"
+                app:icon="@drawable/absen"
+                app:iconSize="20dp" />
+            <com.google.android.material.button.MaterialButton
+                style="@style/Widget.MaterialComponents.Button.TextButton.Icon"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="Data Patroli"
+                android:onClick="toDataPatroli"
+                app:icon="@drawable/patroli"
+                app:iconSize="20dp" />
+
+            <com.google.android.material.button.MaterialButton
+                style="@style/Widget.MaterialComponents.Button.TextButton.Icon"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
                 android:text="Data Anggota"
                 android:onClick="toDataAnggota"
                 app:icon="@drawable/absen"

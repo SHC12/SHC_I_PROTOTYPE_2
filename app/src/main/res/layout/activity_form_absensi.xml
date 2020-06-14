@@ -46,6 +46,29 @@
             android:textColor="@android:color/black"
             android:textSize="18sp" />
     </com.google.android.material.textfield.TextInputLayout>
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/layout_shift"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:layout_marginTop="1dp"
+        android:hint="Shift"
+        android:textColorHint="@android:color/black"
+        app:boxStrokeColor="@color/colorPrimary"
+        app:hintAnimationEnabled="true"
+        app:hintTextColor="@color/colorPrimary"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/layout_jam">
+
+        <AutoCompleteTextView
+            android:id="@+id/in_shift"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textColor="@android:color/black"
+            android:textSize="18sp" />
+    </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/layout_status_absen"
@@ -61,12 +84,13 @@
         app:hintTextColor="@color/colorPrimary"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/layout_jam">
+        app:layout_constraintTop_toBottomOf="@+id/layout_shift">
 
         <AutoCompleteTextView
             android:id="@+id/in_status_absen"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+
             android:textColor="@android:color/black"
             android:textSize="18sp" />
     </com.google.android.material.textfield.TextInputLayout>
@@ -96,30 +120,30 @@
             android:textSize="18sp" />
     </com.google.android.material.textfield.TextInputLayout>
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/layout_keterangan"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="20dp"
-        android:hint="Keterangan Tambahan"
-        android:textColorHint="@android:color/black"
-        app:boxStrokeColor="@color/colorPrimary"
-        app:hintAnimationEnabled="true"
-        app:hintTextColor="@color/colorPrimary"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/layout_status_absen">
+<!--    <com.google.android.material.textfield.TextInputLayout-->
+<!--        android:id="@+id/layout_keterangan"-->
+<!--        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_margin="20dp"-->
+<!--        android:hint="Keterangan Tambahan"-->
+<!--        android:textColorHint="@android:color/black"-->
+<!--        app:boxStrokeColor="@color/colorPrimary"-->
+<!--        app:hintAnimationEnabled="true"-->
+<!--        app:hintTextColor="@color/colorPrimary"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/layout_status_absen">-->
 
-        <EditText
-            android:id="@+id/in_keterangan"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:inputType="text"
-            android:enabled="false"
-            android:textColor="@android:color/black"
-            android:textSize="18sp" />
-    </com.google.android.material.textfield.TextInputLayout>
+<!--        <EditText-->
+<!--            android:id="@+id/in_keterangan"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="match_parent"-->
+<!--            android:inputType="text"-->
+<!--            android:enabled="false"-->
+<!--            android:textColor="@android:color/black"-->
+<!--            android:textSize="18sp" />-->
+<!--    </com.google.android.material.textfield.TextInputLayout>-->
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btn_submit_absen"
@@ -128,7 +152,7 @@
         android:text="Absen"
         app:cornerRadius="20dp"
         android:layout_margin="20dp"
-        app:layout_constraintTop_toBottomOf="@+id/layout_keterangan" />
+        app:layout_constraintTop_toBottomOf="@+id/layout_status_absen" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
