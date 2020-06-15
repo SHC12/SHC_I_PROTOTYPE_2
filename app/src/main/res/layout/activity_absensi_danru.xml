@@ -10,18 +10,7 @@
         android:id="@+id/include11"
         layout="@layout/toolbar" />
 
-    <TextView
-        android:id="@+id/textView12"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="20dp"
-        android:text="QR Absensi Generator\nTanggal : 10 Mei 2020"
-        android:textAlignment="center"
-        android:textColor="@android:color/black"
-        android:textSize="30sp"
-        android:textStyle="bold"
-        app:layout_constraintTop_toBottomOf="@+id/include11"
-        tools:layout_editor_absoluteX="20dp" />
+
 
     <TextView
         android:id="@+id/textView19"
@@ -71,19 +60,17 @@
     </LinearLayout>
 
 
-
-
     <com.google.android.material.button.MaterialButton
         android:id="@+id/materialButton5"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
         android:layout_marginLeft="40dp"
         android:layout_marginRight="40dp"
+        android:layout_marginTop="20dp"
         android:text="Generate Kode Akses"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView12" />
+        app:layout_constraintTop_toBottomOf="@+id/include11" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btnAbsenDanru"

@@ -35,10 +35,9 @@ public class DaftarAbsensiHariIni extends AppCompatActivity {
 
     private List<AbsenHariIni> getData(){
         List<AbsenHariIni> jadwal = new ArrayList<>();
-        jadwal.add(new AbsenHariIni("1","Aji Baskoro", "Ijin"));
-        jadwal.add(new AbsenHariIni("2","Dahlan Hidayat", "Hadir"));
-        jadwal.add(new AbsenHariIni("3","Suhendar","Sakit"));
-
+        jadwal.add(new AbsenHariIni("1","Aji Baskoro", "1","0"));
+        jadwal.add(new AbsenHariIni("2","Dahlan Hidayat", "2","1"));
+        jadwal.add(new AbsenHariIni("3","Suhendar","1","2"));
 
         return jadwal;
     }

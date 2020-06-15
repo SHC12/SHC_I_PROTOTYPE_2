@@ -18,7 +18,6 @@ public class FormGedung extends AppCompatActivity {
     private String[] status_gedung = {"Aman","Mencurigakan","Tidak Aman","Bahaya"};
     private String[] nama_gedungA = {"Gedung A1","Gedung A2"};
     private String[] nama_gedungB = {"Gedung B1","Gedung B2"};
-    private String[] nama_gedungC = {"Gedung C1","Gedung C2"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,7 +59,7 @@ public class FormGedung extends AppCompatActivity {
             getAdapter(gedung, nama_gedungB);
         }else if(flagGedung.equals("C")) {
             gedung = findViewById(R.id.in_nama_gedung);
-            getAdapter(gedung, nama_gedungC);
+            gedung.setText("C");
         }
     }
 
@@ -95,6 +94,9 @@ public class FormGedung extends AppCompatActivity {
             l6.setVisibility(View.GONE);
             l7.setVisibility(View.GONE);
             l8.setVisibility(View.GONE);
+            l1b.setVisibility(View.GONE);
+            l2b.setVisibility(View.GONE);
+
         } else if(flagGedung.equals("C")){
             l1b.setVisibility(View.GONE);
             l2b.setVisibility(View.GONE);
