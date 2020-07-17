@@ -2,20 +2,23 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.mobile.spk">
 
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/logo_patroli"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@drawable/logo_patroli"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".admin.TambahMitra"></activity>
         <activity android:name=".admin.MitraActivity" />
         <activity android:name=".admin.DetailDataAnggota" />
-        <activity android:name=".admin.DataAnggota" />
-        <activity android:name=".admin.HomeAdmin" />
-        <activity android:name=".danru.DetailCutiDanru" />
-        <activity android:name=".danru.CutiDanruActivity" />
+        <activity android:name=".admin.DataAnggotaActivity" />
+        <activity android:name=".DetailCuti" />
+        <activity android:name=".CutiActivity" />
         <activity android:name=".danru.DetailLaporanDanru" />
         <activity android:name=".danru.LaporanPatroliDanru" />
         <activity android:name=".danru.DaftarAbsensiHariIni" />
@@ -26,13 +29,10 @@
         <activity android:name=".danru.DetailJadwalUmumBulan" />
         <activity android:name=".danru.DetailJadwalHariIni" />
         <activity android:name=".danru.JadwalHariIniActivity" />
-        <activity android:name=".danru.HomeDanru" />
         <activity android:name=".anggota.FormInformasi" />
         <activity android:name=".anggota.Detailinformasi" />
-        <activity android:name=".anggota.InformasiActivity" />
-        <activity android:name=".anggota.DetailFormAjuanCuti" />
+        <activity android:name=".InformasiActivity" />
         <activity android:name=".anggota.FormAjukanCuti" />
-        <activity android:name=".anggota.CutiActivity" />
         <activity android:name=".anggota.DetailJadwalUmumPergedung" />
         <activity android:name=".anggota.DetailJadwalUmum" />
         <activity android:name=".anggota.JadwalUmum" />
@@ -43,7 +43,7 @@
         <activity android:name=".anggota.FormAbsensi" />
         <activity android:name=".anggota.ScanBarcodeActivity" />
         <activity android:name=".anggota.AbsensiAnggota" />
-        <activity android:name=".anggota.HomeAnggota" />
+        <activity android:name=".HomeActivity" />
         <activity android:name=".InfoAplikasiActivity" />
         <activity android:name=".RegisterActivity" />
         <activity android:name=".LoginActivity" />

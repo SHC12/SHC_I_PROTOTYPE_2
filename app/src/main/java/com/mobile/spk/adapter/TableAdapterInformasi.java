@@ -74,7 +74,7 @@ public class TableAdapterInformasi extends RecyclerView.Adapter {
 
          
             rowViewHolder.txtTanggal.setText(modal.getTanggal()+"");
-            rowViewHolder.txtJudul.setText(modal.getJudul()+"");
+            rowViewHolder.txtJudul.setText(modal.getJudul_informasi()+"");
 
 
         }
@@ -82,7 +82,7 @@ public class TableAdapterInformasi extends RecyclerView.Adapter {
 
     @Override
     public int getItemCount() {
-        return 3;
+        return listData.size()+1;
     }
     public interface RecyclerViewClickListener {
         void onRowClick(View view, int position);

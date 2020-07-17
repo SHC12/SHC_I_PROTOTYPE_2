@@ -74,7 +74,7 @@
                 android:textColor="@android:color/black" />
 
             <TextView
-                android:id="@+id/lamaDetailInfo"
+                android:id="@+id/judulDetailInfo"
                 android:layout_width="220dp"
                 android:layout_height="wrap_content"
                 android:text="Perubahan Struktur Danru"
@@ -118,6 +118,7 @@
                     android:layout_height="wrap_content"
                     android:background="@drawable/table_content_cell_bg">
                     <TextView
+                        android:id="@+id/isiDetailInfo"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:maxHeight="120dp"
@@ -133,6 +134,7 @@
                 android:layout_marginRight="20dp"
                 >
                     <TextView
+                        android:id="@+id/fileDetailInfo"
                         android:text="File : strukturdanru.pdf"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"

@@ -83,7 +83,7 @@ public class TableAdapterPengajuanCuti extends RecyclerView.Adapter {
 
     @Override
     public int getItemCount() {
-        return 3;
+        return listData.size() + 1;
     }
     public interface RecyclerViewClickListener {
         void onRowClick(View view, int position);

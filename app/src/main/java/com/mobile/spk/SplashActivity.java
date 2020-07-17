@@ -5,8 +5,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 
-import com.mobile.spk.anggota.HomeAnggota;
-
 public class SplashActivity extends AppCompatActivity {
 
     @Override
@@ -23,7 +21,7 @@ public class SplashActivity extends AppCompatActivity {
                 } catch (InterruptedException e){
                     e.printStackTrace();
                 } finally {
-                    startActivity(new Intent(SplashActivity.this, MenuLoginActivity.class));
+                    startActivity(new Intent(SplashActivity.this, HomeActivity.class));
                 }
             }
         };
