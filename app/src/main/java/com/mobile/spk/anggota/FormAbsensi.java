@@ -30,6 +30,7 @@ import retrofit2.Response;
 public class FormAbsensi extends AppCompatActivity {
     public static final String DETAIL_JADWAL = "detail_jadwal" ;
     private String[] status_absen = {"Hadir","Tidak Hadir","Cuti"};
+    String kode_non_format;
 
 
     @Override
@@ -50,6 +51,7 @@ public class FormAbsensi extends AppCompatActivity {
         eLokasi.setText(absen.getLokasi());
         eTanggal.setText(absen.getTanggal());
         eStatusShift.setText(absen.getStatus_shift());
+        kode_non_format = absen.getKode_non_format();
         getSpinner(eAbsen, status_absen);
 
         submitAbsen.setOnClickListener(new View.OnClickListener() {
@@ -65,15 +67,16 @@ public class FormAbsensi extends AppCompatActivity {
                 }else{
                     if(sAbsen.equals("Hadir")){
                         int  kodeAbsen = 1;
-                        submitAbsenUser(kode,kodeAbsen,keterangan);
+                        submitAbsenUser(kode_non_format,kodeAbsen,keterangan);
+
 
                     }else if(sAbsen.equals("Tidak Hadir")){
                         int  kodeAbsen = 2;
-                        submitAbsenUser(kode,kodeAbsen,keterangan);
+                        submitAbsenUser(kode_non_format,kodeAbsen,keterangan);
 
                     }else {
                         int  kodeAbsen = 3;
-                        submitAbsenUser(kode,kodeAbsen,keterangan);
+                        submitAbsenUser(kode_non_format,kodeAbsen,keterangan);
 
                     }
                 }

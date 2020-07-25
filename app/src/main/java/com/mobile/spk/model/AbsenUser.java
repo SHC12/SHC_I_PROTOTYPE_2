@@ -8,6 +8,8 @@ import com.google.gson.annotations.SerializedName;
 public class AbsenUser implements Parcelable {
     @SerializedName("kode_jadwal")
     private String kode;
+    @SerializedName("kode_non_format")
+    private String kode_non_format;
     @SerializedName("nama_petugas")
     private String namaPetugas;
     @SerializedName("tanggal")
@@ -23,6 +25,7 @@ public class AbsenUser implements Parcelable {
 
     protected AbsenUser(Parcel in) {
         kode = in.readString();
+        kode_non_format = in.readString();
         namaPetugas = in.readString();
         tanggal = in.readString();
         lokasi = in.readString();
@@ -42,6 +45,14 @@ public class AbsenUser implements Parcelable {
             return new AbsenUser[size];
         }
     };
+
+    public String getKode_non_format() {
+        return kode_non_format;
+    }
+
+    public void setKode_non_format(String kode_non_format) {
+        this.kode_non_format = kode_non_format;
+    }
 
     public String getKode() {
         return kode;
@@ -107,6 +118,7 @@ public class AbsenUser implements Parcelable {
     @Override
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeString(kode);
+        dest.writeString(kode_non_format);
         dest.writeString(namaPetugas);
         dest.writeString(tanggal);
         dest.writeString(lokasi);
