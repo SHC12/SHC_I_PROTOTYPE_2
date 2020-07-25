@@ -105,6 +105,8 @@ public class Detailinformasi extends AppCompatActivity {
                             Intent intent = new Intent(Intent.ACTION_VIEW);
                             intent.setDataAndType(Uri.parse(foler), "image/*");
                             startActivity(intent);
+                        }else if (mFile.equals("Tidak ada file pendukung")){
+                            Toast.makeText(Detailinformasi.this, "Tidak ada file", Toast.LENGTH_SHORT).show();
                         }else{
                             Intent intent = new Intent(Intent.ACTION_VIEW);
                             intent.setDataAndType(Uri.parse(foler), "*/*");
@@ -118,7 +120,6 @@ public class Detailinformasi extends AppCompatActivity {
 
                 }else{
                     progressDialog.dismiss();
-                    Toast.makeText(Detailinformasi.this, "error", Toast.LENGTH_SHORT).show();
                 }
             }
 

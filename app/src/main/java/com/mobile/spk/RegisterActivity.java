@@ -7,6 +7,8 @@ import android.app.DatePickerDialog;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -59,6 +61,23 @@ public class RegisterActivity extends AppCompatActivity {
         EditText edtUsername = (EditText) findViewById(R.id.in_username_registrasi);
         EditText edtPassword = (EditText) findViewById(R.id.in_password_registrasi);
         MaterialButton btnRegistrasi = (MaterialButton) findViewById(R.id.btnRegistrasi);
+
+        edtJabatan.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                Toast.makeText(RegisterActivity.this, ""+edtJabatan.getText().toString(), Toast.LENGTH_SHORT).show();
+            }
+        });
         getJabatan(edtJabatan);
         getMitra(edtMitra);
         edtTanggal.setOnClickListener(new View.OnClickListener() {
@@ -105,8 +124,8 @@ public class RegisterActivity extends AppCompatActivity {
         getSupportActionBar().setTitle(null);
 
     }
-    private void registrasi(String tanggal, String nomorAnggota, String namaLengkap, String jabatan, String mitra, String nomorHandphone, String email, String username, String password) {
-    Call<ResponseBody> registras = apiInterface.registras(tanggal,nomorAnggota,namaLengkap,jabatan,mitra,nomorHandphone,email,username,password);
+    private void registrasi(String tanggal, String nomorAnggota, String namaLengkap, String mJabatan, String mitra, String nomorHandphone, String email, String username, String password) {
+    Call<ResponseBody> registras = apiInterface.registras(tanggal,nomorAnggota,namaLengkap,mJabatan,mitra,nomorHandphone,email,username,password);
     registras.enqueue(new Callback<ResponseBody>() {
         @Override
         public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {

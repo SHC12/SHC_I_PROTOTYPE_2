@@ -9,28 +9,19 @@
         android:layout_height="match_parent"
         >
         <TextView
-            android:id="@+id/txt_no"
-            android:layout_width="40dp"
+            android:id="@+id/txt_kode"
+            android:layout_width="100dp"
             android:maxLines="1"
             android:layout_height="match_parent"
             android:layout_gravity="top"
             android:gravity="center_horizontal"
-            android:text="No"
+            android:text="Kode"
             android:textSize="12sp" />
         <TextView
             android:id="@+id/txt_tanggal"
-            android:layout_width="100dp"
+            android:layout_width="120dp"
             android:text="Tanggal"
             android:layout_toRightOf="@id/txt_no"
-            android:layout_height="match_parent"
-            android:layout_gravity="top"
-            android:gravity="center_horizontal"
-            android:textSize="12sp" />
-        <TextView
-            android:id="@+id/txt_jam"
-            android:layout_width="60dp"
-            android:text="Jam"
-            android:layout_toRightOf="@id/txt_tanggal"
             android:layout_height="match_parent"
             android:layout_gravity="top"
             android:gravity="center_horizontal"
@@ -38,8 +29,7 @@
 
         <TextView
             android:id="@+id/txt_sf"
-            android:layout_width="40dp"
-            android:layout_toRightOf="@id/txt_jam"
+            android:layout_width="60dp"
             android:layout_height="match_parent"
             android:layout_gravity="top"
             android:gravity="center_horizontal"
@@ -47,7 +37,7 @@
             android:textSize="12sp" />
         <TextView
             android:id="@+id/txt_st"
-            android:layout_width="40dp"
+            android:layout_width="60dp"
             android:layout_toRightOf="@id/txt_sf"
             android:layout_height="match_parent"
             android:layout_gravity="top"

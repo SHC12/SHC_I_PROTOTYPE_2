@@ -82,10 +82,10 @@ public class DetailCuti extends AppCompatActivity {
         lokasi.setText(detail.getLokasi_kerja());
         lama.setText(detail.getLama_cuti());
         alasan.setText(detail.getAlasan_cuti());
-        mulai.setText(detail.getMulai_cuti());
+        mulai.setText(detail.getKontak());
         selesai.setText(detail.getSelesai_cuti());
         kembali.setText(detail.getKembali_kerja());
-        kontrak.setText(detail.getKontak());
+        kontrak.setText(detail.getMulai_cuti());
         keterangan.setText(detail.getKeterangan());
         if(level.equals("1")|| level.equals("2")){
             status.setText(detail.getStatus());

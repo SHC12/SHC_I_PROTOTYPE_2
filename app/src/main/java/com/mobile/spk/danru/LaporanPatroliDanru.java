@@ -42,9 +42,9 @@ public class LaporanPatroliDanru extends AppCompatActivity {
 
     private List<PatroliModel> getData(){
         List<PatroliModel> data = new ArrayList<>();
-        data.add(new PatroliModel("1","03-05-2020", "1"));
-        data.add(new PatroliModel("2","02-05-2020","1"));
-        data.add(new PatroliModel("3","01-05-2020","1"));
+//        data.add(new PatroliModel("1","03-05-2020", "1"));
+//        data.add(new PatroliModel("2","02-05-2020","1"));
+//        data.add(new PatroliModel("3","01-05-2020","1"));
 
 
         return data;

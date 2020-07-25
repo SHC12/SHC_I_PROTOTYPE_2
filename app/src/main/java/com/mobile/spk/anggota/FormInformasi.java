@@ -22,6 +22,7 @@ import com.mobile.spk.InformasiActivity;
 import com.mobile.spk.R;
 import com.mobile.spk.api.ApiClient;
 import com.mobile.spk.api.ApiInterface;
+import com.mobile.spk.utils.SessionManager;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -30,6 +31,7 @@ import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.HashMap;
 import java.util.Locale;
 
 import okhttp3.MediaType;
@@ -43,6 +45,7 @@ import retrofit2.Response;
 public class FormInformasi extends AppCompatActivity {
     String path_file,getSize;
     File file;
+    private boolean fileFoto = false;
     EditText edtTgl,edtSumber,edtJudul,edtDetail,edtFile;
     private DatePickerDialog datePickerDialog;
     private SimpleDateFormat simpleDateFormat;
@@ -51,10 +54,13 @@ public class FormInformasi extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_form_informasi);
 
-
+        SessionManager sessionManager = new SessionManager(this);
+        HashMap<String, String> user = sessionManager.getUserDetail();
         simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd", Locale.US);
         edtTgl = (EditText) findViewById(R.id.in_tgl_informasi);
         edtSumber = (EditText) findViewById(R.id.in_sumber_informasi);
+        String namas = user.get(SessionManager.NAMA);
+        edtSumber.setText(namas);
         edtJudul = (EditText) findViewById(R.id.in_judul_informasi);
         edtDetail = (EditText) findViewById(R.id.in_detail_informasi);
         edtFile = (EditText) findViewById(R.id.in_file_informasi);
@@ -82,20 +88,61 @@ public class FormInformasi extends AppCompatActivity {
                 String mSumber = edtSumber.getText().toString();
                 String mDetail = edtDetail.getText().toString();
                 String mFile = edtFile.getText().toString();
-                if(mTgl.equals("")||mJudul.equals("")||mSumber.equals("")||mDetail.equals("")||mFile.equals("")){
+                if(mTgl.equals("")||mJudul.equals("")||mSumber.equals("")||mDetail.equals("")){
                     Toast.makeText(FormInformasi.this, "Semua field wajib di isi", Toast.LENGTH_SHORT).show();
                 }else{
-                    int size = (int) getFolderSizeLabel(file);
-                    if(size > 5){
-                        Toast.makeText(FormInformasi.this, "File yang dipilih melebihi batasan maksimal 10 mb", Toast.LENGTH_SHORT).show();
+                    if(fileFoto){
+                        int size = (int) getFolderSizeLabel(file);
+                        if(size > 5){
+                            Toast.makeText(FormInformasi.this, "File yang dipilih melebihi batasan maksimal 10 mb", Toast.LENGTH_SHORT).show();
+                        }else{
+                            submitInformasi(mTgl,mJudul,mSumber,mDetail,file);
+                        }
                     }else{
-                        submitInformasi(mTgl,mJudul,mSumber,mDetail,file);
+                        submitInformasiNoFile(mTgl,mJudul,mSumber,mDetail);
                     }
+
                 }
             }
         });
 
         initToolbar();
+    }
+
+    private void submitInformasiNoFile(String mTgl, String mJudul, String mSumber, String mDetail) {
+        ProgressDialog progressDialog = new ProgressDialog(this);
+        progressDialog.setMessage("Loading...");
+        progressDialog.show();
+        ApiInterface apiInterface = ApiClient.getApiClient().create(ApiInterface.class);
+        Call<ResponseBody> submitInfoNoFile = apiInterface.submitInformasinoFile(mTgl,mSumber,mJudul, mDetail);
+        submitInfoNoFile.enqueue(new Callback<ResponseBody>() {
+            @Override
+            public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+                if(response.isSuccessful()){
+                    progressDialog.dismiss();
+                    try {
+                        JSONObject o = new JSONObject(response.body().string());
+                        if(o.getString("status").equals("1")){
+                            Toast.makeText(FormInformasi.this, "Laporan berhasil di buat", Toast.LENGTH_SHORT).show();
+                            startActivity(new Intent(FormInformasi.this, InformasiActivity.class));
+                        }else {
+                            Toast.makeText(FormInformasi.this, "Terjadi kesalahan", Toast.LENGTH_SHORT).show();
+                        }
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }
+
+            }
+
+            @Override
+            public void onFailure(Call<ResponseBody> call, Throwable t) {
+                progressDialog.dismiss();
+                Toast.makeText(FormInformasi.this, ""+t.getMessage(), Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
     private void submitInformasi(String mTgl, String mJudul, String mSumber, String mDetail, File mFile) {
@@ -149,6 +196,7 @@ public class FormInformasi extends AppCompatActivity {
                     Uri uri = data.getData();
                     path_file = FilePath.getFilePath(FormInformasi.this, uri);
                     file = new File(path_file);
+                    fileFoto = true;
                     int size = (int) getFolderSizeLabel(file);
                     if(size > 10){
                         Toast.makeText(this, "File tidak boleh lebih dari 10 Mb", Toast.LENGTH_SHORT).show();

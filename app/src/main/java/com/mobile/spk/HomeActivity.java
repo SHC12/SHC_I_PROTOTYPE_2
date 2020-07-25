@@ -14,6 +14,8 @@ import android.widget.Toast;
 
 import com.mobile.spk.admin.DataAnggotaActivity;
 import com.mobile.spk.admin.MitraActivity;
+import com.mobile.spk.anggota.JadwalActivityAnggota;
+import com.mobile.spk.danru.JadwalHariIniActivity;
 import com.mobile.spk.utils.SessionManager;
 
 import java.util.HashMap;
@@ -88,4 +90,12 @@ public class HomeActivity extends AppCompatActivity {
     startActivity(new Intent(HomeActivity.this, InformasiActivity.class));
     }
 
+    public void toJadwalAbsenUser(View view) {
+        //startActivity(new Intent(HomeActivity.this, JadwalActivityAnggota.class).putExtra("triggerView","absen"));
+        startActivity(new Intent(HomeActivity.this, JadwalActivityAnggota.class).putExtra("triggerView","absen"));
+    }
+
+    public void toJadwalDanru(View view) {
+        startActivity(new Intent(HomeActivity.this, JadwalHariIniActivity.class));
+    }
 }

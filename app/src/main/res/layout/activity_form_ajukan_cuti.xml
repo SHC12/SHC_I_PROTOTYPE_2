@@ -257,7 +257,7 @@
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="No Kontrak Selama Cuti"
+            android:hint="No Kontak"
             android:textColorHint="@android:color/black"
             app:boxStrokeColor="@color/colorPrimary"
             app:hintAnimationEnabled="true"

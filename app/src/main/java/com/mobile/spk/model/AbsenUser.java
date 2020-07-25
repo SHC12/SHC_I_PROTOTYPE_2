@@ -1,38 +1,62 @@
 package com.mobile.spk.model;
 
-public class AbsenUser {
-    private String no;
+import android.os.Parcel;
+import android.os.Parcelable;
+
+import com.google.gson.annotations.SerializedName;
+
+public class AbsenUser implements Parcelable {
+    @SerializedName("kode_jadwal")
+    private String kode;
+    @SerializedName("nama_petugas")
+    private String namaPetugas;
+    @SerializedName("tanggal")
     private String tanggal;
-    private String jam;
-    private String status;
-    private String SF;
+    @SerializedName("lokasi")
+    private String lokasi;
+    @SerializedName("status_absen")
+    private String status_absen;
+    @SerializedName("shift")
+    private String status_shift;
+    @SerializedName("keterangan")
+    private String keterangan;
 
-
-    public AbsenUser(String no, String tanggal, String jam, String status, String SF) {
-        this.no = no;
-        this.tanggal = tanggal;
-        this.jam = jam;
-        this.status = status;
-        this.SF = SF;
+    protected AbsenUser(Parcel in) {
+        kode = in.readString();
+        namaPetugas = in.readString();
+        tanggal = in.readString();
+        lokasi = in.readString();
+        status_absen = in.readString();
+        status_shift = in.readString();
+        keterangan = in.readString();
     }
 
-    public AbsenUser() {
+    public static final Creator<AbsenUser> CREATOR = new Creator<AbsenUser>() {
+        @Override
+        public AbsenUser createFromParcel(Parcel in) {
+            return new AbsenUser(in);
+        }
+
+        @Override
+        public AbsenUser[] newArray(int size) {
+            return new AbsenUser[size];
+        }
+    };
+
+    public String getKode() {
+        return kode;
     }
 
-    public String getSF() {
-        return SF;
+    public void setKode(String kode) {
+        this.kode = kode;
     }
 
-    public void setSF(String SF) {
-        this.SF = SF;
+    public String getNamaPetugas() {
+        return namaPetugas;
     }
 
-    public String getNo() {
-        return no;
-    }
-
-    public void setNo(String no) {
-        this.no = no;
+    public void setNamaPetugas(String namaPetugas) {
+        this.namaPetugas = namaPetugas;
     }
 
     public String getTanggal() {
@@ -43,19 +67,51 @@ public class AbsenUser {
         this.tanggal = tanggal;
     }
 
-    public String getJam() {
-        return jam;
+    public String getLokasi() {
+        return lokasi;
     }
 
-    public void setJam(String jam) {
-        this.jam = jam;
+    public void setLokasi(String lokasi) {
+        this.lokasi = lokasi;
     }
 
-    public String getStatus() {
-        return status;
+    public String getStatus_absen() {
+        return status_absen;
     }
 
-    public void setStatus(String status) {
-        this.status = status;
+    public void setStatus_absen(String status_absen) {
+        this.status_absen = status_absen;
+    }
+
+    public String getStatus_shift() {
+        return status_shift;
+    }
+
+    public void setStatus_shift(String status_shift) {
+        this.status_shift = status_shift;
+    }
+
+    public String getKeterangan() {
+        return keterangan;
+    }
+
+    public void setKeterangan(String keterangan) {
+        this.keterangan = keterangan;
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(kode);
+        dest.writeString(namaPetugas);
+        dest.writeString(tanggal);
+        dest.writeString(lokasi);
+        dest.writeString(status_absen);
+        dest.writeString(status_shift);
+        dest.writeString(keterangan);
     }
 }

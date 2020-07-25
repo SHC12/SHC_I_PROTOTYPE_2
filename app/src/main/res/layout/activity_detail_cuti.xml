@@ -285,7 +285,7 @@
                     android:layout_height="match_parent"
                     android:layout_weight=".05"
                     android:background="@drawable/table_content_cell_bg"
-                    android:text="No Kontrak"
+                    android:text="No Kontak"
                     android:textColor="@android:color/black" />
 
                 <TextView

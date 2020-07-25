@@ -15,11 +15,11 @@
         android:id="@+id/textView5"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_margin="20dp"
         android:text="APLIKASI SIAGA DAN PATROLI KEAMANAN"
         android:textAlignment="center"
         android:textColor="@android:color/black"
         android:textSize="25sp"
-        android:layout_margin="20dp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -38,11 +38,11 @@
     <TextView
         android:id="@+id/nama_user"
         android:layout_width="0dp"
-        android:layout_margin="5dp"
-        android:textStyle="bold"
-        android:textColor="@android:color/black"
-        android:textAlignment="center"
         android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:textAlignment="center"
+        android:textColor="@android:color/black"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/cardView"
         app:layout_constraintTop_toBottomOf="@+id/imageView4" />
@@ -59,19 +59,22 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView5">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
+
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
+
                 <LinearLayout
+                    android:id="@+id/dashboard_anggota"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:visibility="gone"
-                    android:id="@+id/dashboard_anggota"
-                    android:orientation="vertical">
+                    android:orientation="vertical"
+                    android:visibility="gone">
 
                     <com.google.android.material.button.MaterialButton
                         style="@style/Widget.MaterialComponents.Button.TextButton.Icon"
@@ -79,6 +82,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
                         android:text="Absensi"
+                        android:onClick="toJadwalAbsenUser"
                         app:icon="@drawable/absen"
                         app:iconSize="20dp" />
 
@@ -110,8 +114,8 @@
                         style="@style/Widget.MaterialComponents.Button.TextButton.Icon"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Cuti"
                         android:onClick="toCutiMenu"
+                        android:text="Cuti"
                         app:icon="@drawable/cuti"
                         app:iconSize="20dp" />
 
@@ -119,8 +123,8 @@
                         style="@style/Widget.MaterialComponents.Button.TextButton.Icon"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Informasi"
                         android:onClick="toInformasi"
+                        android:text="Informasi"
                         app:icon="@drawable/info"
                         app:iconSize="20dp" />
 
@@ -128,19 +132,20 @@
                         style="@style/Widget.MaterialComponents.Button.TextButton.Icon"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Logout"
-                        android:onClick="toLogout"
                         android:layout_gravity="bottom"
+                        android:onClick="toLogout"
+                        android:text="Logout"
                         app:icon="@drawable/logoutt"
                         app:iconSize="20dp" />
 
                 </LinearLayout>
+
                 <LinearLayout
+                    android:id="@+id/dashboard_danru"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:id="@+id/dashboard_danru"
-                    android:visibility="gone"
-                    android:orientation="vertical">
+                    android:orientation="vertical"
+                    android:visibility="gone">
 
                     <com.google.android.material.button.MaterialButton
                         style="@style/Widget.MaterialComponents.Button.TextButton.Icon"
@@ -164,6 +169,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Jadwal"
+                        android:onClick="toJadwalDanru"
                         app:icon="@drawable/jadwal_personal"
                         app:iconSize="20dp" />
 
@@ -171,8 +177,8 @@
                         style="@style/Widget.MaterialComponents.Button.TextButton.Icon"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Cuti"
                         android:onClick="toCutiMenu"
+                        android:text="Cuti"
                         app:icon="@drawable/cuti"
                         app:iconSize="20dp" />
 
@@ -180,8 +186,8 @@
                         style="@style/Widget.MaterialComponents.Button.TextButton.Icon"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Informasi"
                         android:onClick="toInformasi"
+                        android:text="Informasi"
                         app:icon="@drawable/info"
                         app:iconSize="20dp" />
 
@@ -189,19 +195,20 @@
                         style="@style/Widget.MaterialComponents.Button.TextButton.Icon"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Logout"
-                        android:onClick="toLogout"
                         android:layout_gravity="bottom"
+                        android:onClick="toLogout"
+                        android:text="Logout"
                         app:icon="@drawable/logoutt"
                         app:iconSize="20dp" />
 
                 </LinearLayout>
+
                 <LinearLayout
+                    android:id="@+id/dashboard_admin"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:id="@+id/dashboard_admin"
-                    android:visibility="gone"
-                    android:orientation="vertical">
+                    android:orientation="vertical"
+                    android:visibility="gone">
 
                     <com.google.android.material.button.MaterialButton
                         style="@style/Widget.MaterialComponents.Button.TextButton.Icon"
@@ -211,6 +218,7 @@
                         android:text="Data Absensi"
                         app:icon="@drawable/absen"
                         app:iconSize="20dp" />
+
                     <com.google.android.material.button.MaterialButton
                         style="@style/Widget.MaterialComponents.Button.TextButton.Icon"
                         android:layout_width="match_parent"
@@ -225,8 +233,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
-                        android:text="Data Anggota"
                         android:onClick="toDataAnggota"
+                        android:text="Data Anggota"
                         app:icon="@drawable/absen"
                         app:iconSize="20dp" />
 
@@ -234,8 +242,8 @@
                         style="@style/Widget.MaterialComponents.Button.TextButton.Icon"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Mitra"
                         android:onClick="toDataMitra"
+                        android:text="Mitra"
                         app:icon="@drawable/mitra"
                         app:iconSize="20dp" />
 
@@ -243,8 +251,8 @@
                         style="@style/Widget.MaterialComponents.Button.TextButton.Icon"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Cuti"
                         android:onClick="toCutiMenu"
+                        android:text="Cuti"
                         app:icon="@drawable/cuti"
                         app:iconSize="20dp" />
 
@@ -253,8 +261,8 @@
                         style="@style/Widget.MaterialComponents.Button.TextButton.Icon"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Informasi"
                         android:onClick="toInformasi"
+                        android:text="Informasi"
                         app:icon="@drawable/info"
                         app:iconSize="20dp" />
 
@@ -262,12 +270,11 @@
                         style="@style/Widget.MaterialComponents.Button.TextButton.Icon"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Logout"
-                        android:onClick="toLogout"
                         android:layout_gravity="bottom"
+                        android:onClick="toLogout"
+                        android:text="Logout"
                         app:icon="@drawable/logoutt"
                         app:iconSize="20dp" />
-
 
 
                 </LinearLayout>
@@ -275,17 +282,16 @@
 
             <TextClock
                 android:id="@+id/textClock"
-                android:layout_marginTop="10dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@android:color/black"
                 android:layout_gravity="center_horizontal"
-                android:textStyle="bold"
+                android:layout_marginTop="10dp"
+                android:format12Hour="hh:mm:ss a"
+                android:textColor="@android:color/black"
                 android:textSize="20sp"
-                android:format12Hour="hh:mm:ss a" />
+                android:textStyle="bold" />
 
         </LinearLayout>
-
 
 
     </androidx.cardview.widget.CardView>

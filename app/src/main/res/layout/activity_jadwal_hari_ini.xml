@@ -17,67 +17,50 @@
         android:layout_height="wrap_content"
         android:layout_margin="20dp"
         android:textAlignment="center"
-        android:text="Lihat Jadwal Hari Ini\nTanggal : 10 Mei 2020"
+        android:text="Jadwal Petugas"
         android:textColor="@android:color/black"
         android:textSize="30sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/include7" />
-
     <TextView
-        android:id="@+id/textView11"
+        android:id="@+id/textViewPilihGedung"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="20dp"
-        android:text="Pilih Gedung Kampus"
-        android:textAlignment="center"
+        android:textAlignment="textStart"
+        android:text="Silahkan pilih gedung atau nama petugas"
         android:textColor="@android:color/black"
-        android:textSize="30sp"
-        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
+        android:textSize="20sp"
+        android:textStyle="italic"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <LinearLayout
-        android:id="@+id/linearLayout"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:orientation="vertical"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/include7">
+        app:layout_constraintTop_toBottomOf="@+id/textView12" />
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/layout_jadwal_pilih_gedung"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="1dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="10dp"
+        android:hint="Pilih Gedung"
+        android:textColorHint="@android:color/black"
+        app:boxStrokeColor="@color/colorPrimary"
+        app:hintAnimationEnabled="true"
+        app:hintTextColor="@color/colorPrimary"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewPilihGedung">
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnGedungA"
-            style="@style/Widget.MaterialComponents.Button.Icon"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Gedung A"
-            android:onClick="toGedungA"
-            android:padding="20dp"
-            app:icon="@drawable/ic_baseline_location_city_24" />
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnGedungB"
-            style="@style/Widget.MaterialComponents.Button.Icon"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Gedung B"
-            android:onClick="toGedungA"
-            android:padding="20dp"
-            app:icon="@drawable/ic_baseline_location_city_24" />
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnGedungC"
-            style="@style/Widget.MaterialComponents.Button.Icon"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Gedung C"
-            android:onClick="toGedungA"
-            android:padding="20dp"
-            app:icon="@drawable/ic_baseline_location_city_24" />
-
-
-    </LinearLayout>
+        <AutoCompleteTextView
+            android:id="@+id/in_jadwal_pilih_gedung"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textColor="@android:color/black"
+            android:textSize="18sp" />
+    </com.google.android.material.textfield.TextInputLayout>
 
     <LinearLayout
         android:id="@+id/linearLayout1"
@@ -86,36 +69,223 @@
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout">
+        app:layout_constraintTop_toBottomOf="@+id/layout_jadwal_pilih_gedung"
+        app:layout_constraintVertical_bias="0.024">
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnJadwalUmum"
+            android:id="@+id/btnJadwalExportPDFGedung"
             style="@style/Widget.MaterialComponents.Button.Icon"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:padding="20dp"
+            android:layout_margin="10dp"
+
             android:maxEms="10"
             android:onClick="toJadwalUmumDanru"
-            android:backgroundTint="@color/colorYellow"
-            android:layout_margin="10dp"
-            android:text="Jadwal umum"
-            app:icon="@drawable/ic_baseline_location_city_24" />
+            android:padding="20dp"
+            android:text="Export PDF"
+           />
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnJadwalPersonal"
+            android:id="@+id/btnJadwalTampilGedung"
             style="@style/Widget.MaterialComponents.Button.Icon"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:padding="20dp"
-            android:maxEms="10"
-            android:onClick="toJadwalPersonalDanru"
-            android:backgroundTint="@color/colorYellow"
             android:layout_margin="10dp"
-            android:text="Jadwal Personal"
-            app:icon="@drawable/ic_baseline_location_city_24" />
+
+            android:maxEms="10"
+            android:onClick="toTampilGedung"
+            android:padding="20dp"
+            android:text="Tampilkan"
+           />
 
 
     </LinearLayout>
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/layout_jadwal_pilih_petugas"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="1dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="10dp"
+        android:hint="Pilih Petugas"
+        android:textColorHint="@android:color/black"
+        app:boxStrokeColor="@color/colorPrimary"
+        app:hintAnimationEnabled="true"
+        app:hintTextColor="@color/colorPrimary"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout1">
+
+        <AutoCompleteTextView
+            android:id="@+id/in_jadwal_pilih_petugas"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textColor="@android:color/black"
+            android:textSize="18sp" />
+    </com.google.android.material.textfield.TextInputLayout>
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/layout_jadwal_pilih_petugas"
+        app:layout_constraintVertical_bias="0.024">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnJadwalExportPDFPetugas"
+            style="@style/Widget.MaterialComponents.Button.Icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+
+            android:maxEms="10"
+            android:onClick="toJadwalUmumDanru"
+            android:padding="20dp"
+            android:text="Export PDF"
+            />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnJadwalTampilPetugas"
+            style="@style/Widget.MaterialComponents.Button.Icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+
+            android:maxEms="10"
+            android:onClick="toTampilPetugas"
+            android:padding="20dp"
+            android:text="Tampilkan"
+            />
+
+
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/linearLayout3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout2"
+        app:layout_constraintVertical_bias="0.024">
+
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnInputJadwalPetugas"
+            style="@style/Widget.MaterialComponents.Button.Icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:maxEms="10"
+            android:onClick="toJadwalPersonalDanru"
+            android:padding="20dp"
+            android:text="Input Jadwal"
+            />
+
+
+    </LinearLayout>
+
+
+    <!--    <TextView-->
+<!--        android:id="@+id/textView11"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_margin="20dp"-->
+<!--        android:text="Pilih Gedung Kampus"-->
+<!--        android:textAlignment="center"-->
+<!--        android:textColor="@android:color/black"-->
+<!--        android:textSize="30sp"-->
+<!--        app:layout_constraintBottom_toTopOf="@+id/linearLayout"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent" />-->
+
+<!--    <LinearLayout-->
+<!--        android:id="@+id/linearLayout"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        android:orientation="vertical"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/include7">-->
+
+<!--        <com.google.android.material.button.MaterialButton-->
+<!--            android:id="@+id/btnGedungA"-->
+<!--            style="@style/Widget.MaterialComponents.Button.Icon"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="Gedung A"-->
+<!--            android:onClick="toGedungA"-->
+<!--            android:padding="20dp"-->
+<!--            app:icon="@drawable/ic_baseline_location_city_24" />-->
+<!--        <com.google.android.material.button.MaterialButton-->
+<!--            android:id="@+id/btnGedungB"-->
+<!--            style="@style/Widget.MaterialComponents.Button.Icon"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="Gedung B"-->
+<!--            android:onClick="toGedungA"-->
+<!--            android:padding="20dp"-->
+<!--            app:icon="@drawable/ic_baseline_location_city_24" />-->
+<!--        <com.google.android.material.button.MaterialButton-->
+<!--            android:id="@+id/btnGedungC"-->
+<!--            style="@style/Widget.MaterialComponents.Button.Icon"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="Gedung C"-->
+<!--            android:onClick="toGedungA"-->
+<!--            android:padding="20dp"-->
+<!--            app:icon="@drawable/ic_baseline_location_city_24" />-->
+
+
+<!--    </LinearLayout>-->
+
+<!--    <LinearLayout-->
+<!--        android:id="@+id/linearLayout1"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:orientation="horizontal"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/linearLayout">-->
+
+<!--        <com.google.android.material.button.MaterialButton-->
+<!--            android:id="@+id/btnJadwalUmum"-->
+<!--            style="@style/Widget.MaterialComponents.Button.Icon"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:padding="20dp"-->
+<!--            android:maxEms="10"-->
+<!--            android:onClick="toJadwalUmumDanru"-->
+<!--            android:backgroundTint="@color/colorYellow"-->
+<!--            android:layout_margin="10dp"-->
+<!--            android:text="Jadwal umum"-->
+<!--            app:icon="@drawable/ic_baseline_location_city_24" />-->
+
+<!--        <com.google.android.material.button.MaterialButton-->
+<!--            android:id="@+id/btnJadwalPersonal"-->
+<!--            style="@style/Widget.MaterialComponents.Button.Icon"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:padding="20dp"-->
+<!--            android:maxEms="10"-->
+<!--            android:onClick="toJadwalPersonalDanru"-->
+<!--            android:backgroundTint="@color/colorYellow"-->
+<!--            android:layout_margin="10dp"-->
+<!--            android:text="Jadwal Personal"-->
+<!--            app:icon="@drawable/ic_baseline_location_city_24" />-->
+
+
+<!--    </LinearLayout>-->
 
 </androidx.constraintlayout.widget.ConstraintLayout>

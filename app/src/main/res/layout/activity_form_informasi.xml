@@ -77,7 +77,9 @@
                     android:id="@+id/in_sumber_informasi"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:inputType="textPersonName"
+                    android:inputType="none"
+                    android:editable="false"
+                    android:focusableInTouchMode="false"
                     android:textColor="@android:color/black"
                     android:textSize="18sp" />
             </com.google.android.material.textfield.TextInputLayout>

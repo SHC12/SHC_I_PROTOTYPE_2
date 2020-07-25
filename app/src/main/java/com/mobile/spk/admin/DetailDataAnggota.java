@@ -5,6 +5,7 @@ import androidx.appcompat.widget.Toolbar;
 
 import android.app.AlertDialog;
 import android.app.AlertDialog.Builder;
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -24,6 +25,7 @@ import com.mobile.spk.api.ApiClient;
 import com.mobile.spk.api.ApiInterface;
 import com.mobile.spk.model.DataAnggota;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -38,6 +40,7 @@ import retrofit2.Response;
 public class DetailDataAnggota extends AppCompatActivity {
     private ApiInterface apiInterface;
     public static final String DETAIL_ANGGOTA = "detail_anggota" ;
+    private ArrayList<String> mitraList = new ArrayList<>();
     private String id,tgl,no,nama,jabatan,mitra,nope,email,username,password,status;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -127,13 +130,15 @@ public class DetailDataAnggota extends AppCompatActivity {
     EditText uNomorAnggota = (EditText) findViewById(R.id.in_no_anggota_update_anggota);
     EditText uNamaAnggota = (EditText) findViewById(R.id.in_nama_lengkap_update_anggota);
     AutoCompleteTextView uJabatan = (AutoCompleteTextView) findViewById(R.id.in_jabatan_update_anggota);
-    EditText uMitra = (EditText) findViewById(R.id.in_mitra_update_anggota);
+    AutoCompleteTextView uMitra = (AutoCompleteTextView) findViewById(R.id.in_mitra_update_anggota);
     EditText uNope = (EditText) findViewById(R.id.in_no_handphone_update_anggota);
     EditText uEmail = (EditText) findViewById(R.id.in_email_update_anggota);
     EditText uUsername = (EditText) findViewById(R.id.in_username_update_anggota);
     EditText uPassword = (EditText) findViewById(R.id.in_password_update_anggota);
     AutoCompleteTextView uStatus = (AutoCompleteTextView) findViewById(R.id.in_status_update_anggota);
     MaterialButton btnUpdateData = (MaterialButton) findViewById(R.id.btnUpdate);
+
+    getMitra(uMitra);
     uNomorAnggota.setText(no);
     uNamaAnggota.setText(nama);
     uJabatan.setText(jabatan);
@@ -188,6 +193,39 @@ public class DetailDataAnggota extends AppCompatActivity {
         getSupportActionBar().setTitle(null);
 
     }
+
+    private void getMitra(AutoCompleteTextView target){
+        ProgressDialog progressDialog = new ProgressDialog(this);
+        progressDialog.show();
+        progressDialog.setMessage("Loading...");
+        Call<ResponseBody> getMitra = apiInterface.getMitra();
+        getMitra.enqueue(new Callback<ResponseBody>() {
+            @Override
+            public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+                if(response.isSuccessful()){
+                    progressDialog.dismiss();
+                    try {
+                        JSONObject o = new JSONObject(response.body().string());
+                        JSONArray mA = o.getJSONArray("mitra");
+                        for(int i = 0; i<mA.length();i++){
+                            JSONObject s = mA.getJSONObject(i);
+                            mitraList.add(s.getString("nama_mitra"));
+                        }
+                        getSpinnerArray(target,mitraList);
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+
+            @Override
+            public void onFailure(Call<ResponseBody> call, Throwable t) {
+
+            }
+        });
+    }
     private void updateDataAnggota(String id, String nNoAnggota, String nNama, String nJabatan, String nMitra, String nNope, String nEmail, String nUsername, String nPassword, String nStatus) {
         Call<ResponseBody> updateDataUser = apiInterface.updateUser(id,nNoAnggota,nNama,nJabatan,nMitra,nNope,nEmail,nUsername,nPassword,nStatus);
         updateDataUser.enqueue(new Callback<ResponseBody>() {
@@ -216,6 +254,11 @@ public class DetailDataAnggota extends AppCompatActivity {
     }
 
     private void getSpinner(AutoCompleteTextView target, String[] item) {
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(getApplicationContext(), R.layout.spinner_list_item, item);
+        target.setAdapter(adapter);
+    }
+
+    private void getSpinnerArray(AutoCompleteTextView target, ArrayList<String> item) {
         ArrayAdapter<String> adapter = new ArrayAdapter<>(getApplicationContext(), R.layout.spinner_list_item, item);
         target.setAdapter(adapter);
     }
