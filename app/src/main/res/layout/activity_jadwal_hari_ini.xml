@@ -186,7 +186,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:maxEms="10"
-            android:onClick="toJadwalPersonalDanru"
+            android:onClick="toInputJadwalDanru"
             android:padding="20dp"
             android:text="Input Jadwal"
             />

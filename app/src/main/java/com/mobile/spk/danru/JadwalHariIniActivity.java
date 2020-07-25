@@ -45,7 +45,7 @@ public class JadwalHariIniActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_jadwal_hari_ini);
 
-        Petugas model = new Petugas();
+
         progressDialog = new ProgressDialog(this);
         apiInterface = ApiClient.getApiClient().create(ApiInterface.class);
          gedung = (AutoCompleteTextView) findViewById(R.id.in_jadwal_pilih_gedung);
@@ -97,11 +97,11 @@ public class JadwalHariIniActivity extends AppCompatActivity {
                         JSONObject o = new JSONObject(response.body().string());
                         JSONArray a = o.getJSONArray("petugas");
                         for(int i = 0; i<a.length();i++){
-                            Petugas petugas = new Petugas();
+
 
                             JSONObject ao = a.getJSONObject(i);
 
-                            petugas.setId_user(ao.getString("id_user"));
+
                             petugasList.add(ao.getString("nama_lengkap"));
                         }
                         getSpinnerAPI(target,petugasList);
@@ -122,4 +122,7 @@ public class JadwalHariIniActivity extends AppCompatActivity {
     }
 
 
+    public void toInputJadwalDanru(View view) {
+        startActivity(new Intent(JadwalHariIniActivity.this,FormInputJadwal.class));
+    }
 }

@@ -105,6 +105,14 @@ public class JadwalActivityAnggota extends AppCompatActivity {
             }
         });
 
+        MaterialButton btnRiwayat = findViewById(R.id.btnRiwayatAbsen);
+        btnRiwayat.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(JadwalActivityAnggota.this, RiwayatActivity.class).putExtra("triggerRiwayat", "absen"));
+            }
+        });
+
 
     }
 
