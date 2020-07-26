@@ -15,6 +15,7 @@ import android.widget.Toast;
 import com.mobile.spk.admin.DataAnggotaActivity;
 import com.mobile.spk.admin.MitraActivity;
 import com.mobile.spk.anggota.JadwalActivityAnggota;
+import com.mobile.spk.anggota.PatroliActivity;
 import com.mobile.spk.danru.JadwalHariIniActivity;
 import com.mobile.spk.utils.SessionManager;
 
@@ -97,5 +98,14 @@ public class HomeActivity extends AppCompatActivity {
 
     public void toJadwalDanru(View view) {
         startActivity(new Intent(HomeActivity.this, JadwalHariIniActivity.class));
+    }
+
+    public void toPatroliPetugas(View view) {
+        startActivity(new Intent(HomeActivity.this, PatroliActivity.class));
+    }
+
+    public void toJadwalUmumPetugas(View view) {
+        startActivity(new Intent(HomeActivity.this, JadwalHariIniActivity.class).putExtra("triggerView","petugas"));
+
     }
 }

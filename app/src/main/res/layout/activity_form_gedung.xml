@@ -35,8 +35,33 @@
         app:layout_constraintTop_toBottomOf="@+id/textView3">
 
         <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/layout_kode_jadwal_patroli"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:hint="Kode Jadwal"
+            android:textColorHint="@android:color/black"
+            app:boxStrokeColor="@color/colorPrimary"
+            app:hintAnimationEnabled="true"
+            app:hintTextColor="@color/colorPrimary"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView3">
+
+            <EditText
+                android:id="@+id/in_kode_jadwal_patroli"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:focusableInTouchMode="false"
+                android:inputType="text"
+                android:textColor="@android:color/black"
+                android:textSize="18sp" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/layout_nama_gedung"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
@@ -47,12 +72,13 @@
             app:hintTextColor="@color/colorPrimary"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView3">
+            app:layout_constraintTop_toBottomOf="@+id/layout_kode_jadwal_patroli">
 
-            <AutoCompleteTextView
-                android:id="@+id/in_nama_gedung"
+            <EditText
+                android:id="@+id/in_nama_gedung_patroli"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:focusableInTouchMode="false"
                 android:inputType="text"
                 android:textColor="@android:color/black"
                 android:textSize="18sp" />
@@ -65,6 +91,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:hint="Tanggal"
+            android:focusableInTouchMode="false"
             android:textColorHint="@android:color/black"
             app:boxStrokeColor="@color/colorPrimary"
             app:hintAnimationEnabled="true"
@@ -99,8 +126,9 @@
             app:layout_constraintTop_toBottomOf="@+id/layout_tanggal_laporan">
 
             <EditText
-                android:id="@+id/in_jam"
+                android:id="@+id/in_jam_patroli"
                 android:layout_width="match_parent"
+                android:focusableInTouchMode="false"
                 android:layout_height="match_parent"
                 android:inputType="textPersonName"
                 android:textColor="@android:color/black"
@@ -161,8 +189,13 @@
                     android:textColor="@android:color/black"
                     android:textSize="18sp" />
             </com.google.android.material.textfield.TextInputLayout>
-        </LinearLayout>
 
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/line_step1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
         <LinearLayout
             android:id="@+id/line_lantai_1"
             android:layout_width="match_parent"
@@ -330,7 +363,14 @@
                     android:textSize="18sp" />
             </com.google.android.material.textfield.TextInputLayout>
         </LinearLayout>
+        </LinearLayout>
 
+
+    <LinearLayout
+        android:id="@+id/line_step2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
         <LinearLayout
             android:id="@+id/line_lantai_4"
             android:layout_width="match_parent"
@@ -442,7 +482,14 @@
                     android:textSize="18sp" />
             </com.google.android.material.textfield.TextInputLayout>
         </LinearLayout>
+    </LinearLayout>
 
+
+    <LinearLayout
+        android:id="@+id/line_step3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
         <LinearLayout
             android:id="@+id/line_lantai_6"
             android:layout_width="match_parent"
@@ -612,120 +659,9 @@
                     android:textSize="18sp" />
             </com.google.android.material.textfield.TextInputLayout>
         </LinearLayout>
+    </LinearLayout>
 
 
-        <LinearLayout
-            android:id="@+id/line_lantai_1b"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:orientation="horizontal">
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/layout_lantai_1b"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
-
-                android:layout_width="200dp"
-                android:layout_height="match_parent"
-                android:hint="Lantai 1b"
-                android:textColorHint="@android:color/black"
-                app:boxStrokeColor="@color/colorPrimary"
-                app:hintAnimationEnabled="true"
-                app:hintTextColor="@color/colorPrimary"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/layout_jam">
-
-                <AutoCompleteTextView
-                    android:id="@+id/in_lantai_1b"
-                    android:paddingLeft="10dp"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:inputType="textPersonName"
-                    android:textColor="@android:color/black"
-                    android:textSize="18sp" />
-            </com.google.android.material.textfield.TextInputLayout>
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/layout_file_lantai_1b"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Upload File"
-                android:layout_marginLeft="10dp"
-                android:textColorHint="@android:color/black"
-                app:boxStrokeColor="@color/colorPrimary"
-                app:hintAnimationEnabled="true"
-                app:hintTextColor="@color/colorPrimary"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/layout_jam">
-
-                <EditText
-                    android:id="@+id/in_file_lantai_1b"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:inputType="textPersonName"
-                    android:focusableInTouchMode="false"
-                    android:textColor="@android:color/black"
-                    android:textSize="18sp" />
-            </com.google.android.material.textfield.TextInputLayout>
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/line_lantai_2b"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:orientation="horizontal">
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/layout_lantai_2b"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
-                android:layout_width="200dp"
-                android:layout_height="match_parent"
-                android:hint="Lantai 2b"
-                android:textColorHint="@android:color/black"
-                app:boxStrokeColor="@color/colorPrimary"
-                app:hintAnimationEnabled="true"
-                app:hintTextColor="@color/colorPrimary"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/layout_jam">
-
-                <AutoCompleteTextView
-                    android:id="@+id/in_lantai_2b"
-                    android:paddingLeft="10dp"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:inputType="textPersonName"
-                    android:textColor="@android:color/black"
-                    android:textSize="18sp" />
-            </com.google.android.material.textfield.TextInputLayout>
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/layout_file_lantai_2b"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Upload File"
-                android:layout_marginLeft="10dp"
-                android:textColorHint="@android:color/black"
-                app:boxStrokeColor="@color/colorPrimary"
-                app:hintAnimationEnabled="true"
-                app:hintTextColor="@color/colorPrimary"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/layout_jam">
-
-                <EditText
-                    android:id="@+id/in_file_lantai_2b"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:inputType="textPersonName"
-                    android:focusableInTouchMode="false"
-                    android:textColor="@android:color/black"
-                    android:textSize="18sp" />
-            </com.google.android.material.textfield.TextInputLayout>
-        </LinearLayout>
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/layout_info_tambahan"

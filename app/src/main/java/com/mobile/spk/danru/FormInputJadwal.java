@@ -18,6 +18,11 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.android.volley.Request;
+import com.androidnetworking.AndroidNetworking;
+import com.androidnetworking.common.Priority;
+import com.androidnetworking.error.ANError;
+import com.androidnetworking.interfaces.JSONArrayRequestListener;
 import com.mobile.spk.CutiActivity;
 import com.mobile.spk.R;
 import com.mobile.spk.adapter.TableAdapterFormInputJadwalPersonal;
@@ -82,6 +87,7 @@ public class FormInputJadwal extends AppCompatActivity {
         petugas = (AutoCompleteTextView) findViewById(R.id.in_petugas);
         shift = (AutoCompleteTextView) findViewById(R.id.in_shift_jadwal);
         e_kode_jadwal = findViewById(R.id.in_kode_jadwal);
+
         e_tanggal = findViewById(R.id.in_tgl_jadwal);
         e_tanggal.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -114,11 +120,18 @@ public class FormInputJadwal extends AppCompatActivity {
                     kode_shift = "0";
                 }else if(shiftName.equals("Shift 1")){
                     kode_shift = "1";
-                }if(shiftName.equals("Shift 2")){
+                }else if(shiftName.equals("Shift 2")){
                     kode_shift = "2";
                 }
 
-                inputJadwal(id_user, sTanggal, lokasiName, shiftName);
+                if(id_user.equals("") || sTanggal.equals("") || lokasiName.equals("") || shiftName.equals("") ){
+                    Toast.makeText(FormInputJadwal.this, "Gagal, silahkan isi semua field data", Toast.LENGTH_SHORT).show();
+                }else{
+                    inputJadwal(id_user, sTanggal, lokasiName, kode_shift);
+                }
+
+
+
 
 
 
@@ -133,6 +146,34 @@ public class FormInputJadwal extends AppCompatActivity {
         getKodeJadwal();
 
 
+
+    }
+
+    public void getKodeJadwal(){
+        AndroidNetworking.get("http://dahlan.my.id/api_android/get_kode_jadwal.php")
+                .setTag("test")
+                .setPriority(Priority.LOW)
+                .build()
+                .getAsJSONArray(new JSONArrayRequestListener() {
+                    @Override
+                    public void onResponse(JSONArray response) {
+                        try {
+                            for (int i = 0; i < response.length(); i++) {
+                                JSONObject data = response.getJSONObject(i);
+                                e_kode_jadwal.setText(data.getString("kode_jadwal"));
+
+                            }
+
+
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                    @Override
+                    public void onError(ANError error) {
+                        // handle error
+                    }
+                });
     }
     private void showDateDialog(final EditText edt_target) {
 
@@ -154,36 +195,7 @@ public class FormInputJadwal extends AppCompatActivity {
 
         datePickerDialog.show();
     }
-    private void getKodeJadwal() {
 
-        Call<ResponseBody> getKD = apiInterface.getKodeJadwal();
-        getKD.enqueue(new Callback<ResponseBody>() {
-            @Override
-            public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
-                if(response.isSuccessful()){
-                    try {
-                        JSONObject o = new JSONObject(response.body().string());
-                        String t_kd = o.getString("kode_jadwal");
-                        Toast.makeText(FormInputJadwal.this, ""+t_kd, Toast.LENGTH_SHORT).show();
-
-//                        e_kode_jadwal.setText(o.getString("kode_jadwal"));
-                    } catch (JSONException e) {
-                        e.printStackTrace();
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
-                }else{
-                    Toast.makeText(FormInputJadwal.this, "Koneksi Bermasalah", Toast.LENGTH_SHORT).show();
-                }
-            }
-
-            @Override
-            public void onFailure(Call<ResponseBody> call, Throwable t) {
-                Toast.makeText(FormInputJadwal.this, ""+t.getMessage(), Toast.LENGTH_SHORT).show();
-            }
-        });
-
-    }
 
     private void inputJadwal(String sId_user, String sTgl, String sLokasi, String sShift) {
         ProgressDialog progressDialog = new ProgressDialog(this);

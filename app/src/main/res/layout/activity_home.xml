@@ -91,6 +91,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Patroli"
+                        android:onClick="toPatroliPetugas"
                         app:icon="@drawable/patroli"
                         app:iconSize="20dp" />
 
@@ -107,6 +108,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Jadwal Umum"
+                        android:onClick="toJadwalUmumPetugas"
                         app:icon="@drawable/jadwal_umum"
                         app:iconSize="20dp" />
 

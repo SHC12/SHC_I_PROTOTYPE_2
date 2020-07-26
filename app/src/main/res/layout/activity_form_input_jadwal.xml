@@ -48,7 +48,7 @@
                 android:id="@+id/in_kode_jadwal"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-
+                android:focusableInTouchMode="false"
                 android:inputType="none"
                 android:textColor="@android:color/black"
                 android:textSize="18sp" />
