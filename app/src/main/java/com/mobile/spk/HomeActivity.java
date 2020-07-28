@@ -15,7 +15,9 @@ import android.widget.Toast;
 import com.mobile.spk.admin.DataAnggotaActivity;
 import com.mobile.spk.admin.MitraActivity;
 import com.mobile.spk.anggota.JadwalActivityAnggota;
+import com.mobile.spk.anggota.JadwalPersonal;
 import com.mobile.spk.anggota.PatroliActivity;
+import com.mobile.spk.anggota.RiwayatPatroli;
 import com.mobile.spk.danru.JadwalHariIniActivity;
 import com.mobile.spk.utils.SessionManager;
 
@@ -92,7 +94,6 @@ public class HomeActivity extends AppCompatActivity {
     }
 
     public void toJadwalAbsenUser(View view) {
-        //startActivity(new Intent(HomeActivity.this, JadwalActivityAnggota.class).putExtra("triggerView","absen"));
         startActivity(new Intent(HomeActivity.this, JadwalActivityAnggota.class).putExtra("triggerView","absen"));
     }
 
@@ -107,5 +108,18 @@ public class HomeActivity extends AppCompatActivity {
     public void toJadwalUmumPetugas(View view) {
         startActivity(new Intent(HomeActivity.this, JadwalHariIniActivity.class).putExtra("triggerView","petugas"));
 
+    }
+
+    public void ToJadwalPersonal(View view) {
+        startActivity(new Intent(HomeActivity.this, JadwalPersonal.class));
+
+    }
+
+    public void ToRiwayatAbsensi(View view) {
+        startActivity(new Intent(HomeActivity.this, RiwayatActivity.class).putExtra("triggerRiwayat", "absen"));
+    }
+
+    public void ToRiwayatPatroli(View view) {
+        startActivity(new Intent(HomeActivity.this, RiwayatPatroli.class));
     }
 }

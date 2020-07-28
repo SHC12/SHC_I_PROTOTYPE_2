@@ -10,6 +10,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.text.InputType;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
@@ -33,8 +34,11 @@ import org.json.JSONObject;
 import java.io.File;
 import java.io.IOException;
 import java.lang.reflect.Array;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 import okhttp3.MediaType;
 import okhttp3.MultipartBody;
@@ -236,13 +240,7 @@ public class FormGedung extends AppCompatActivity {
 
                 String slokasi = e_gedung.getText().toString();
 
-                if(slokasi.equals("Gedung A1") || slokasi.equals("Gedung A2")){
-                    postPatroliGedungA(kode_jadwall, id_user, kode, jam, sKet, al1, al2, al3, al4, al5, f_l1, f_l2, f_l3, f_l4, f_l5 );
-                }else if(slokasi.equals("Gedung B1") || slokasi.equals("Gedung B2")){
-                    postPatroliGedungB(kode_jadwall, id_user, kode, jam, sKet, al1, al2, al3, f_l1, f_l2, f_l3);
-                }else if(slokasi.equals("Gedung C")){
-                    postPatroliGedungC(kode_jadwall, id_user, kode, jam, sKet, al1, al2, al3, al4, al5, al6, al7, al8, aBasemenet, f_l1, f_l2, f_l3, f_l4, f_l5, f_l6, f_l7, f_l8, f_base );
-                }
+                    postPatroliGedung(kode_jadwall, id_user, kode, jam, sKet, al1, al2, al3, al4, al5, al6, al7, al8, aBasemenet, f_l1, f_l2, f_l3, f_l4, f_l5, f_l6, f_l7, f_l8, f_base );
 
 
 
@@ -257,129 +255,14 @@ public class FormGedung extends AppCompatActivity {
         getForm(nama_gedung);
 
     }
-    private void postPatroliGedungA(String mKodeJadwal, String mId_user, String mKode, String mJam, String mKeterangan, String mL1, String mL2, String mL3, String mL4, String mL5, File fL1, File fL2, File fL3, File fL4, File fL5) {
+
+
+    private void postPatroliGedung(String mKodeJadwal, String mId_user, String mKode, String mJam, String mKeterangan, String mL1, String mL2, String mL3, String mL4, String mL5, String mL6, String mL7, String mL8, String mBasement, File fL1, File fL2, File fL3, File fL4, File fL5, File fL6, File fL7, File fL8, File fL9) {
         ProgressDialog progressDialog = new ProgressDialog(this);
         progressDialog.setMessage("Loading...");
         progressDialog.show();
+
         ApiInterface apiInterface = ApiClient.getApiClient().create(ApiInterface.class);
-        RequestBody resBody = RequestBody.create(MediaType.parse("multipart/form-file"), fL1);
-        RequestBody resBody2 = RequestBody.create(MediaType.parse("multipart/form-file"), fL2);
-        RequestBody resBody3 = RequestBody.create(MediaType.parse("multipart/form-file"), fL3);
-        RequestBody resBody4 = RequestBody.create(MediaType.parse("multipart/form-file"), fL4);
-        RequestBody resBody5 = RequestBody.create(MediaType.parse("multipart/form-file"), fL5);
-        RequestBody rKodeJadwal = RequestBody.create(MediaType.parse("text/plain"), mKodeJadwal);
-        RequestBody rIdUser = RequestBody.create(MediaType.parse("text/plain"), mId_user);
-        RequestBody rKode = RequestBody.create(MediaType.parse("text/plain"), mKode);
-        RequestBody rJam = RequestBody.create(MediaType.parse("text/plain"), mJam);
-        RequestBody rKeterangan = RequestBody.create(MediaType.parse("text/plain"), mKeterangan);
-        RequestBody rLt1 = RequestBody.create(MediaType.parse("text/plain"), mL1);
-        RequestBody rLt2 = RequestBody.create(MediaType.parse("text/plain"), mL2);
-        RequestBody rLt3 = RequestBody.create(MediaType.parse("text/plain"), mL3);
-        RequestBody rLt4 = RequestBody.create(MediaType.parse("text/plain"), mL4);
-        RequestBody rLt5 = RequestBody.create(MediaType.parse("text/plain"), mL5);
-        MultipartBody.Part partFile1 = MultipartBody.Part.createFormData("lt1_file", fL1.getName(), resBody);
-        MultipartBody.Part partFile2 = MultipartBody.Part.createFormData("lt2_file", fL2.getName(), resBody2);
-        MultipartBody.Part partFile3 = MultipartBody.Part.createFormData("lt3_file", fL3.getName(), resBody3);
-        MultipartBody.Part partFile4 = MultipartBody.Part.createFormData("lt4_file", fL4.getName(), resBody4);
-        MultipartBody.Part partFile5 = MultipartBody.Part.createFormData("lt5_file", fL5.getName(), resBody5);
-        Call<ResponseBody> submitFile = apiInterface.postPatroliGedungA(rKodeJadwal,rIdUser, rKode,rJam,rKeterangan,rLt1, rLt2, rLt3, rLt4, rLt5, partFile1,partFile2, partFile3, partFile4,  partFile5 );
-        submitFile.enqueue(new Callback<ResponseBody>() {
-            @Override
-            public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
-                if(response.isSuccessful()){
-                    progressDialog.dismiss();
-                    try {
-                        JSONObject o = new JSONObject(response.body().string());
-                        if(o.getString("status").equals("1")){
-                            Toast.makeText(FormGedung.this, "Laporan berhasil di buat", Toast.LENGTH_SHORT).show();
-                            startActivity(new Intent(FormGedung.this, PatroliActivity.class));
-                        }else {
-                            Toast.makeText(FormGedung.this, "Terjadi kesalahan", Toast.LENGTH_SHORT).show();
-                        }
-                    } catch (JSONException e) {
-                        e.printStackTrace();
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
-                }
-            }
-
-            @Override
-            public void onFailure(Call<ResponseBody> call, Throwable t) {
-                progressDialog.dismiss();
-                Toast.makeText(FormGedung.this, ""+t.getMessage(), Toast.LENGTH_SHORT).show();
-            }
-        });
-
-    }
-
-    private void postPatroliGedungB(String mKodeJadwal, String mId_user, String mKode, String mJam, String mKeterangan, String mL1, String mL2, String mL3, File fL1, File fL2, File fL3) {
-        ProgressDialog progressDialog = new ProgressDialog(this);
-        progressDialog.setMessage("Loading...");
-        progressDialog.show();
-        ApiInterface apiInterface = ApiClient.getApiClient().create(ApiInterface.class);
-        RequestBody resBody = RequestBody.create(MediaType.parse("multipart/form-file"), fL1);
-        RequestBody resBody2 = RequestBody.create(MediaType.parse("multipart/form-file"), fL2);
-        RequestBody resBody3 = RequestBody.create(MediaType.parse("multipart/form-file"), fL3);
-
-        RequestBody rKodeJadwal = RequestBody.create(MediaType.parse("text/plain"), mKodeJadwal);
-        RequestBody rIdUser = RequestBody.create(MediaType.parse("text/plain"), mId_user);
-        RequestBody rKode = RequestBody.create(MediaType.parse("text/plain"), mKode);
-        RequestBody rJam = RequestBody.create(MediaType.parse("text/plain"), mJam);
-        RequestBody rKeterangan = RequestBody.create(MediaType.parse("text/plain"), mKeterangan);
-        RequestBody rLt1 = RequestBody.create(MediaType.parse("text/plain"), mL1);
-        RequestBody rLt2 = RequestBody.create(MediaType.parse("text/plain"), mL2);
-        RequestBody rLt3 = RequestBody.create(MediaType.parse("text/plain"), mL3);
-
-        MultipartBody.Part partFile1 = MultipartBody.Part.createFormData("lt1_file", fL1.getName(), resBody);
-        MultipartBody.Part partFile2 = MultipartBody.Part.createFormData("lt2_file", fL2.getName(), resBody2);
-        MultipartBody.Part partFile3 = MultipartBody.Part.createFormData("lt3_file", fL3.getName(), resBody3);
-
-        Call<ResponseBody> submitFile = apiInterface.postPatroliGedungB(rKodeJadwal, rIdUser,rKode,rJam,rKeterangan,rLt1, rLt2, rLt3, partFile1,partFile2, partFile3 );
-        submitFile.enqueue(new Callback<ResponseBody>() {
-            @Override
-            public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
-                if(response.isSuccessful()){
-                    progressDialog.dismiss();
-                    try {
-                        JSONObject o = new JSONObject(response.body().string());
-                        if(o.getString("status").equals("1")){
-                            Toast.makeText(FormGedung.this, "Laporan berhasil di buat", Toast.LENGTH_SHORT).show();
-                            startActivity(new Intent(FormGedung.this, PatroliActivity.class));
-                        }else {
-                            Toast.makeText(FormGedung.this, "Terjadi kesalahan", Toast.LENGTH_SHORT).show();
-                        }
-                    } catch (JSONException e) {
-                        e.printStackTrace();
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
-                }
-            }
-
-            @Override
-            public void onFailure(Call<ResponseBody> call, Throwable t) {
-                progressDialog.dismiss();
-                Toast.makeText(FormGedung.this, ""+t.getMessage(), Toast.LENGTH_SHORT).show();
-            }
-        });
-
-    }
-
-    private void postPatroliGedungC(String mKodeJadwal, String mId_user, String mKode, String mJam, String mKeterangan, String mL1, String mL2, String mL3, String mL4, String mL5, String mL6, String mL7, String mL8, String mBasement, File fL1, File fL2, File fL3, File fL4, File fL5, File fL6, File fL7, File fL8, File fL9) {
-        ProgressDialog progressDialog = new ProgressDialog(this);
-        progressDialog.setMessage("Loading...");
-        progressDialog.show();
-        ApiInterface apiInterface = ApiClient.getApiClient().create(ApiInterface.class);
-        RequestBody resBody = RequestBody.create(MediaType.parse("multipart/form-file"), fL1);
-        RequestBody resBody2 = RequestBody.create(MediaType.parse("multipart/form-file"), fL2);
-        RequestBody resBody3 = RequestBody.create(MediaType.parse("multipart/form-file"), fL3);
-        RequestBody resBody4 = RequestBody.create(MediaType.parse("multipart/form-file"), fL4);
-        RequestBody resBody5 = RequestBody.create(MediaType.parse("multipart/form-file"), fL5);
-        RequestBody resBody6 = RequestBody.create(MediaType.parse("multipart/form-file"), fL6);
-        RequestBody resBody7 = RequestBody.create(MediaType.parse("multipart/form-file"), fL7);
-        RequestBody resBody8 = RequestBody.create(MediaType.parse("multipart/form-file"), fL8);
-        RequestBody resBody9 = RequestBody.create(MediaType.parse("multipart/form-file"), fL9);
         RequestBody rKodeJadwal = RequestBody.create(MediaType.parse("text/plain"), mKodeJadwal);
         RequestBody rIdUser = RequestBody.create(MediaType.parse("text/plain"), mId_user);
         RequestBody rKode = RequestBody.create(MediaType.parse("text/plain"), mKode);
@@ -394,16 +277,46 @@ public class FormGedung extends AppCompatActivity {
         RequestBody rLt7 = RequestBody.create(MediaType.parse("text/plain"), mL7);
         RequestBody rLt8 = RequestBody.create(MediaType.parse("text/plain"), mL8);
         RequestBody rLt9 = RequestBody.create(MediaType.parse("text/plain"), mBasement);
-        MultipartBody.Part partFile1 = MultipartBody.Part.createFormData("lt1_file", fL1.getName(), resBody);
-        MultipartBody.Part partFile2 = MultipartBody.Part.createFormData("lt2_file", fL2.getName(), resBody2);
-        MultipartBody.Part partFile3 = MultipartBody.Part.createFormData("lt3_file", fL3.getName(), resBody3);
-        MultipartBody.Part partFile4 = MultipartBody.Part.createFormData("lt4_file", fL4.getName(), resBody4);
-        MultipartBody.Part partFile5 = MultipartBody.Part.createFormData("lt5_file", fL5.getName(), resBody5);
-        MultipartBody.Part partFile6 = MultipartBody.Part.createFormData("lt6_file", fL6.getName(), resBody6);
-        MultipartBody.Part partFile7 = MultipartBody.Part.createFormData("lt7_file", fL7.getName(), resBody7);
-        MultipartBody.Part partFile8 = MultipartBody.Part.createFormData("lt8_file", fL8.getName(), resBody8);
-        MultipartBody.Part partFile9 = MultipartBody.Part.createFormData("basement_file", fL9.getName(), resBody9);
-        Call<ResponseBody> submitFile = apiInterface.postPatroliGedungC(rKodeJadwal,rIdUser, rKode,rJam,rKeterangan,rLt1, rLt2, rLt3, rLt4, rLt5, rLt6, rLt7, rLt8, rLt9, partFile1,partFile2, partFile3, partFile4,  partFile5, partFile6, partFile7, partFile8, partFile9);
+
+
+        Map<String,RequestBody> partMapKeterangan = new HashMap<>();
+        List<MultipartBody.Part> partMapLt1 = new ArrayList<>();
+        if(!TextUtils.isEmpty(rKeterangan.toString())){
+            partMapKeterangan.put("keterangan",createPartFromString(mKeterangan));
+        }
+        if(fL1 != null){
+            partMapLt1.add(prepareFilePart("lt1_file",fL1));
+        }
+        if(fL2 != null){
+            partMapLt1.add(prepareFilePart("lt2_file",fL2));
+        }
+        if(fL3 != null){
+            partMapLt1.add(prepareFilePart("lt3_file",fL3));
+        }
+        if(fL4 != null){
+            partMapLt1.add(prepareFilePart("lt4_file",fL4));
+
+        }
+        if(fL5 != null){
+            partMapLt1.add(prepareFilePart("lt5_file",fL5));
+
+        }
+        if(fL6 != null){
+            partMapLt1.add(prepareFilePart("lt6_file",fL6));
+
+        }
+        if(fL7 != null){
+            partMapLt1.add(prepareFilePart("lt7_file",fL7));
+
+        }
+        if(fL8 != null){
+            partMapLt1.add(prepareFilePart("lt8_file",fL8));
+        }
+        if(fL9 != null){
+            partMapLt1.add(prepareFilePart("basement_file",fL9));
+        }
+
+        Call<ResponseBody> submitFile = apiInterface.postPatroliGedungC(rKodeJadwal,rIdUser, rKode,rJam,partMapKeterangan,rLt1, rLt2, rLt3, rLt4, rLt5, rLt6, rLt7, rLt8, rLt9, partMapLt1);
         submitFile.enqueue(new Callback<ResponseBody>() {
             @Override
             public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
@@ -484,7 +397,14 @@ public class FormGedung extends AppCompatActivity {
         }
 
     }
+    private MultipartBody.Part prepareFilePart(String partName, File file){
+        RequestBody requestBody = RequestBody.create(MediaType.parse("multipart/form-file"), file);
+        return MultipartBody.Part.createFormData(partName, file.getName(),requestBody);
+    }
 
+    public RequestBody createPartFromString(String string) {
+        return RequestBody.create(MultipartBody.FORM, string);
+    }
     public static long getFolderSizeLabel(File file) {
         long size = getFolderSize(file) / 1024; // Get size and convert bytes into Kb.
         if (size >= 1024) {

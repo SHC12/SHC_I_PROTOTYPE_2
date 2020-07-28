@@ -4,7 +4,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
+import android.os.Environment;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -13,6 +15,7 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import com.mobile.spk.R;
+import com.mobile.spk.anggota.DetailRiwayatPatroli;
 import com.mobile.spk.anggota.JadwalUmum;
 import com.mobile.spk.api.ApiClient;
 import com.mobile.spk.api.ApiInterface;
@@ -23,7 +26,11 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -46,7 +53,10 @@ public class JadwalHariIniActivity extends AppCompatActivity {
     String getID_user;
 
     String triggerview;
-    Button btnInputJadwal;
+    Button btnInputJadwal, btnExportGedung, btnExportPetugas;
+
+    String export_jadwal_by_gedung = "http://dahlan.my.id/api_android/export_jadwal_by_gedung.php?lokasi=";
+    String url_export_jawdal_gedung;
 
     int level;
 
@@ -61,7 +71,24 @@ public class JadwalHariIniActivity extends AppCompatActivity {
         apiInterface = ApiClient.getApiClient().create(ApiInterface.class);
          gedung = (AutoCompleteTextView) findViewById(R.id.in_jadwal_pilih_gedung);
          petugas = (AutoCompleteTextView) findViewById(R.id.in_jadwal_pilih_petugas);
+         btnExportGedung = findViewById(R.id.btnJadwalExportPDFGedung);
+         btnExportPetugas = findViewById(R.id.btnJadwalExportPDFPetugas);
          btnInputJadwal = findViewById(R.id.btnInputJadwalPetugas);
+
+         btnExportGedung.setOnClickListener(new View.OnClickListener() {
+             @Override
+             public void onClick(View v) {
+                 getGedung = gedung.getText().toString();
+                 ExportJadwalGedung(getGedung);
+
+
+
+
+
+             }
+         });
+
+
 
         level = Integer.parseInt(user.get(SessionManager.LEVEL));
 
@@ -73,9 +100,17 @@ public class JadwalHariIniActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 getID_user = dataList.get(position).getId_user();
 
+
+
             }
         });
+        btnExportPetugas.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
 
+                ExportJadwalPetugas(getID_user);
+            }
+        });
 
 
 
@@ -89,18 +124,27 @@ public class JadwalHariIniActivity extends AppCompatActivity {
 
     public void toTampilGedung(View view) {
         getGedung = gedung.getText().toString();
-        startActivity(new Intent(JadwalHariIniActivity.this, JadwalByGedung.class).putExtra("nama_gedung",getGedung));;
+        if(getGedung.equals("")){
+            Toast.makeText(this, "Nama Gedung Wajib Di Isi", Toast.LENGTH_SHORT).show();
+        }else{
+            startActivity(new Intent(JadwalHariIniActivity.this, JadwalByGedung.class).putExtra("nama_gedung",getGedung));;
+
+        }
 
     }
     public void toTampilPetugas(View view) {
 
         getNamaPetugas = petugas.getText().toString();
 
+        if(getNamaPetugas.equals("")){
+            Toast.makeText(this, "Nama Petugas Wajib Di Isi", Toast.LENGTH_SHORT).show();
+        }else{
+            Intent in = new Intent(JadwalHariIniActivity.this, JadwalByPetugas.class);
+            in.putExtra("id_user", getID_user);
+            in.putExtra("nama_petugas", getNamaPetugas);
+            startActivity(in);
+        }
 
-        Intent in = new Intent(JadwalHariIniActivity.this, JadwalByPetugas.class);
-        in.putExtra("id_user", getID_user);
-        in.putExtra("nama_petugas", getNamaPetugas);
-        startActivity(in);
     }
 
 
@@ -159,5 +203,108 @@ public class JadwalHariIniActivity extends AppCompatActivity {
 
     public void toInputJadwalDanru(View view) {
         startActivity(new Intent(JadwalHariIniActivity.this,FormInputJadwal.class));
+    }
+    public void ExportJadwalGedung(String lokasi) {
+        String fileName = "Export Jadwal Gedung"+ lokasi +" .pdf";
+        Call<ResponseBody> downloadAbsen = apiInterface.downloadDataJadwalGedung(lokasi);
+        downloadAbsen.enqueue(new Callback<ResponseBody>() {
+            @Override
+            public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+                if(response.isSuccessful()){
+                    boolean suc = writeResponseBodyToDisk(response.body(),fileName);
+                    if(suc){
+                        Toast.makeText(JadwalHariIniActivity.this, "Rekapan berhasil di download, file tersimpan di folder Downloads", Toast.LENGTH_SHORT).show();
+
+                    }else{
+                        Toast.makeText(JadwalHariIniActivity.this, "Gagal simpan PDF", Toast.LENGTH_SHORT).show();
+                    }
+
+                }else{
+                    Toast.makeText(JadwalHariIniActivity.this, "error", Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<ResponseBody> call, Throwable t) {
+                Toast.makeText(JadwalHariIniActivity.this, ""+t.getMessage(), Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+    public void ExportJadwalPetugas(String id_user) {
+        String fileName = "Export Jadwal Petugas.pdf";
+        Call<ResponseBody> downloadAbsen = apiInterface.downloadDataJadwalPetugas(id_user);
+        downloadAbsen.enqueue(new Callback<ResponseBody>() {
+            @Override
+            public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+                if(response.isSuccessful()){
+                    boolean suc = writeResponseBodyToDisk(response.body(),fileName);
+                    if(suc){
+                        Toast.makeText(JadwalHariIniActivity.this, "Rekapan berhasil di download, file tersimpan di folder Downloads", Toast.LENGTH_SHORT).show();
+
+                    }else{
+                        Toast.makeText(JadwalHariIniActivity.this, "Gagal simpan PDF", Toast.LENGTH_SHORT).show();
+                    }
+
+                }else{
+                    Toast.makeText(JadwalHariIniActivity.this, "error", Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<ResponseBody> call, Throwable t) {
+                Toast.makeText(JadwalHariIniActivity.this, ""+t.getMessage(), Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+    private boolean writeResponseBodyToDisk(ResponseBody body,String path) {
+        try {
+            // todo change the file location/name according to your needs
+            File futureStudioIconFile = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS),
+                    path);
+
+            InputStream inputStream = null;
+            OutputStream outputStream = null;
+
+            try {
+                byte[] fileReader = new byte[4096];
+
+                long fileSize = body.contentLength();
+                long fileSizeDownloaded = 0;
+
+                inputStream = body.byteStream();
+                outputStream = new FileOutputStream(futureStudioIconFile);
+
+                while (true) {
+                    int read = inputStream.read(fileReader);
+
+                    if (read == -1) {
+                        break;
+                    }
+
+                    outputStream.write(fileReader, 0, read);
+
+                    fileSizeDownloaded += read;
+
+                }
+
+                outputStream.flush();
+
+                return true;
+            } catch (IOException e) {
+                return false;
+            } finally {
+                if (inputStream != null) {
+                    inputStream.close();
+                }
+
+                if (outputStream != null) {
+                    outputStream.close();
+                }
+            }
+        } catch (IOException e) {
+            return false;
+        }
     }
 }

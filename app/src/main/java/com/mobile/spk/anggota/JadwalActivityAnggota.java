@@ -1,9 +1,14 @@
 package com.mobile.spk.anggota;
 
+import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
@@ -23,12 +28,19 @@ import com.mobile.spk.api.ApiInterface;
 import com.mobile.spk.model.AbsenUser;
 import com.mobile.spk.model.Cuti;
 import com.mobile.spk.model.PatroliModel;
+import com.mobile.spk.model.Petugas;
 import com.mobile.spk.utils.SessionManager;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -40,6 +52,7 @@ public class JadwalActivityAnggota extends AppCompatActivity {
     private ApiInterface apiInterface;
     private RecyclerView rvRiwayatPatroliUser;
     private String triggerAbsen = "jadwal";
+
     private TableAdapterAbsenUser adapterAbsenUser;
     private TableAdapterAbsenUser.RecyclerViewClickListener listener;
 
@@ -48,25 +61,13 @@ public class JadwalActivityAnggota extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_jadwal_anggota);
         sessionManager = new SessionManager(this);
+
+
+
         apiInterface = ApiClient.getApiClient().create(ApiInterface.class);
         HashMap<String, String> user = sessionManager.getUserDetail();
         String idUser = user.get(SessionManager.ID);
         LinearLayout viewAbsen = findViewById(R.id.view_absen_petugas);
-        LinearLayout viewPatroli = findViewById(R.id.view_patroli_petugas);
-        LinearLayout viewJadwalPersonal = findViewById(R.id.view_jadwal_personal_petugas);
-//        String triggerView = getIntent().getStringExtra("triggerView");
-//
-//        if (triggerView.equals("absen")) {
-//            viewAbsen.setVisibility(View.VISIBLE);
-//            initViewAbsen(idUser);
-//        } else if (triggerView.equals("patroli")) {
-//            viewPatroli.setVisibility(View.VISIBLE);
-//            initViewPatroli(idUser);
-//        } else if (triggerView.equals("jadwalPersonal")) {
-//            viewJadwalPersonal.setVisibility(View.VISIBLE);
-//        }
-        rvRiwayatAbsenUser = findViewById(R.id.rv_jadwal_absen_user);
-        viewAbsen.setVisibility(View.VISIBLE);
 
         getDataAbsen(idUser);
 
@@ -87,6 +88,7 @@ public class JadwalActivityAnggota extends AppCompatActivity {
         adapterAbsenUser = new TableAdapterAbsenUser(getApplicationContext(), listJadwal, listener);
         rvRiwayatAbsenUser.setLayoutManager(new LinearLayoutManager(this));
         rvRiwayatAbsenUser.setHasFixedSize(true);
+        adapterAbsenUser.notifyDataSetChanged();
         rvRiwayatAbsenUser.setAdapter(adapterAbsenUser);
 
         Call<List<AbsenUser>> getAbsenUser = apiInterface.jadwalUser(id);
@@ -116,84 +118,10 @@ public class JadwalActivityAnggota extends AppCompatActivity {
 
     }
 
-    private void initViewPatroli(String idUser) {
-        MaterialButton btnRiwayatPatroli = findViewById(R.id.btnRiwayatPatroli);
-        btnRiwayatPatroli.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(JadwalActivityAnggota.this, RiwayatActivity.class).putExtra("triggerRiwayat", "patroli"));
-            }
-        });
-        rvRiwayatPatroliUser = findViewById(R.id.rv_jadwal_Patroli_user);
-        listener = new TableAdapterAbsenUser.RecyclerViewClickListener() {
-            @Override
-            public void onRowClick(View view, int position) {
-
-                Intent i = new Intent(JadwalActivityAnggota.this, FormAbsensi.class);
-                i.putExtra(FormAbsensi.DETAIL_JADWAL, listJadwal.get(position - 1));
-                startActivity(i);
-
-            }
-        };
-        adapterAbsenUser = new TableAdapterAbsenUser(getApplicationContext(), listJadwal, listener);
-        rvRiwayatAbsenUser.setLayoutManager(new LinearLayoutManager(this));
-        rvRiwayatAbsenUser.setHasFixedSize(true);
-        rvRiwayatAbsenUser.setAdapter(adapterAbsenUser);
-
-        getJadwal(idUser);
-    }
-
-    private void initViewAbsen(String idUser) {
-        MaterialButton btnRiwayat = findViewById(R.id.btnRiwayatAbsen);
-        btnRiwayat.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(JadwalActivityAnggota.this, RiwayatActivity.class).putExtra("triggerRiwayat", "absen"));
-            }
-        });
-        rvRiwayatAbsenUser = findViewById(R.id.rv_jadwal_absen_user);
-        listener = new TableAdapterAbsenUser.RecyclerViewClickListener() {
-            @Override
-            public void onRowClick(View view, int position) {
-
-                Intent i = new Intent(JadwalActivityAnggota.this, FormAbsensi.class);
-                i.putExtra(FormAbsensi.DETAIL_JADWAL, listJadwal.get(position - 1));
-                startActivity(i);
-
-            }
-        };
-        adapterAbsenUser = new TableAdapterAbsenUser(getApplicationContext(), listJadwal, listener);
-        rvRiwayatAbsenUser.setLayoutManager(new LinearLayoutManager(this));
-        rvRiwayatAbsenUser.setHasFixedSize(true);
-        rvRiwayatAbsenUser.setAdapter(adapterAbsenUser);
-
-        getJadwal(idUser);
-
-
-    }
 
 
 
-    private void getJadwal(String idUser) {
-//        ApiInterface apiInterface = ApiClient.getApiClient().create(ApiInterface.class);
-        Call<List<AbsenUser>> getJadwalUser = apiInterface.jadwalUser(idUser);
-        getJadwalUser.enqueue(new Callback<List<AbsenUser>>() {
-            @Override
-            public void onResponse(Call<List<AbsenUser>> call, Response<List<AbsenUser>> response) {
-                listJadwal = response.body();
-                adapterAbsenUser = new TableAdapterAbsenUser(getApplicationContext(), listJadwal, listener);
-                rvRiwayatAbsenUser.setAdapter(adapterAbsenUser);
-                adapterAbsenUser.notifyDataSetChanged();
-                Log.e("absen", response.body().toString());
-            }
 
-            @Override
-            public void onFailure(Call<List<AbsenUser>> call, Throwable t) {
-                Toast.makeText(JadwalActivityAnggota.this, "" + t.getMessage(), Toast.LENGTH_SHORT).show();
-
-            }
-        });
-    }
 
 
 

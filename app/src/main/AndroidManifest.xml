@@ -15,7 +15,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".anggota.DetailRiwayatPatroli"></activity>
+        <activity android:name=".admin.DataAbsenPatroli"></activity>
+        <activity android:name=".danru.UpdateJadwal" />
+        <activity android:name=".anggota.DetailRiwayatPatroli" />
         <activity android:name=".anggota.RiwayatPatroli" />
         <activity android:name=".anggota.PatroliActivity" />
         <activity android:name=".danru.JadwalByPetugas" />

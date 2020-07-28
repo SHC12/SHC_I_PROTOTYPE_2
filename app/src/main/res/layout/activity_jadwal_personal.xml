@@ -28,10 +28,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="20dp"
-        android:text="Nama Anggota : Dahlan"
+        android:text="Nama"
         android:textColor="@color/colorPrimary"
         android:textSize="20sp"
         android:textStyle="bold"
+        android:gravity="center"
         app:layout_constraintTop_toBottomOf="@+id/textView12"
         tools:layout_editor_absoluteX="20dp" />
 
@@ -54,6 +55,15 @@
         app:layout_constraintTop_toBottomOf="@+id/rv_jadwal_personal_anggota"
         tools:layout_editor_absoluteX="20dp" />
 
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnExportJadwalPersonal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right"
+        android:onClick="ExportJadwalPersonal"
+        android:layout_margin="20dp"
+        android:text="Export PDF"
+        app:layout_constraintTop_toBottomOf="@+id/textView14" />
 
     <TextView
         android:id="@+id/textView15"

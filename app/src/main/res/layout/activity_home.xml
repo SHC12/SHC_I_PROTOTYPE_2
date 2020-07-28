@@ -100,6 +100,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Jadwal Personal"
+                        android:onClick="ToJadwalPersonal"
                         app:icon="@drawable/jadwal_personal"
                         app:iconSize="20dp" />
 
@@ -155,6 +156,8 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
                         android:text="Absensi"
+                        android:onClick="toJadwalAbsenUser"
+
                         app:icon="@drawable/absen"
                         app:iconSize="20dp" />
 
@@ -163,6 +166,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Patroli"
+                        android:onClick="toPatroliPetugas"
                         app:icon="@drawable/patroli"
                         app:iconSize="20dp" />
 
@@ -218,6 +222,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
                         android:text="Data Absensi"
+                        android:onClick="ToRiwayatAbsensi"
                         app:icon="@drawable/absen"
                         app:iconSize="20dp" />
 
@@ -227,6 +232,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
                         android:text="Data Patroli"
+                        android:onClick="ToRiwayatPatroli"
                         app:icon="@drawable/patroli"
                         app:iconSize="20dp" />
 
