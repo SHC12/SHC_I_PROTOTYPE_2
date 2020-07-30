@@ -1,0 +1,656 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".anggota.DetailRiwayatPatroli">
+
+    <include
+        android:id="@+id/include3"
+        layout="@layout/toolbar" />
+
+    <TextView
+        android:id="@+id/title_detail_jadwal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:text="Detail Laporan Patroli "
+        android:textColor="@android:color/black"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        android:textAlignment="center"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/include3" />
+
+    <TableLayout
+        android:id="@+id/tableLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/title_detail_jadwal">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_weight="1"
+            android:background="@drawable/table_header_cell_bg"
+            android:gravity="left">
+
+            <TextView
+                android:id="@+id/tx_kode_jadwal_rp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/table_header_cell_bg"
+                android:text="Kode Jadwal : CUTI 001"
+                android:textColor="@android:color/white"
+                android:textStyle="bold" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_weight="1"
+            android:gravity="left">
+
+            <TextView
+                android:layout_width="10dp"
+                android:layout_height="match_parent"
+                android:layout_weight=".05"
+                android:background="@drawable/table_content_cell_bg"
+                android:text="Tanggal"
+                android:textColor="@android:color/black" />
+
+            <TextView
+                android:id="@+id/tanggalDetailJadwalRP"
+                android:layout_width="20dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/table_content_cell_bg"
+                android:text="10-05-2020"
+                android:textColor="@android:color/black" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:gravity="left">
+
+            <TextView
+                android:layout_width="150dp"
+                android:layout_height="match_parent"
+                android:layout_weight=".05"
+                android:background="@drawable/table_content_cell_bg"
+                android:text="Nama "
+                android:textColor="@android:color/black" />
+
+            <TextView
+                android:id="@+id/namaDetailJadwalRP"
+                android:layout_width="220dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/table_content_cell_bg"
+                android:text="2"
+                android:textColor="@android:color/black" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:gravity="left">
+
+            <TextView
+                android:layout_width="150dp"
+                android:layout_height="match_parent"
+                android:layout_weight=".05"
+                android:background="@drawable/table_content_cell_bg"
+                android:text="Lokasi"
+                android:textColor="@android:color/black" />
+
+            <TextView
+                android:id="@+id/lokasiJadwalRP"
+                android:layout_width="220dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/table_content_cell_bg"
+                android:text="2"
+                android:textColor="@android:color/black" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:gravity="left">
+
+            <TextView
+                android:layout_width="150dp"
+                android:layout_height="match_parent"
+                android:layout_weight=".05"
+                android:background="@drawable/table_content_cell_bg"
+                android:text="Shift"
+                android:textColor="@android:color/black" />
+
+            <TextView
+                android:id="@+id/shiftJadwalRP"
+                android:layout_width="220dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/table_content_cell_bg"
+                android:text="2"
+                android:textColor="@android:color/black" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:gravity="left">
+
+            <TextView
+                android:layout_width="150dp"
+                android:layout_height="match_parent"
+                android:layout_weight=".05"
+                android:background="@drawable/table_content_cell_bg"
+                android:text="Jam "
+                android:textColor="@android:color/black" />
+
+            <TextView
+                android:id="@+id/jamJadwalRP"
+                android:layout_width="220dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/table_content_cell_bg"
+                android:text="2"
+                android:textColor="@android:color/black" />
+        </TableRow>
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:gravity="left">
+
+            <TextView
+                android:layout_width="150dp"
+                android:layout_height="match_parent"
+                android:layout_weight=".05"
+                android:background="@drawable/table_content_cell_bg"
+                android:text="Lantai 1 "
+                android:textColor="@android:color/black" />
+
+            <TextView
+                android:id="@+id/lt1RP"
+                android:layout_width="220dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/table_content_cell_bg"
+                android:text="2"
+                android:textColor="@android:color/black" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:gravity="left">
+
+            <TextView
+                android:layout_width="150dp"
+                android:layout_height="match_parent"
+                android:layout_weight=".05"
+                android:background="@drawable/table_content_cell_bg"
+                android:text="File 1 "
+                android:textColor="@android:color/black" />
+
+            <TextView
+                android:id="@+id/lt1FileRP"
+                android:layout_width="220dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/table_content_cell_bg"
+                android:text="2"
+                android:textColor="@android:color/black" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:gravity="left">
+
+            <TextView
+                android:layout_width="150dp"
+                android:layout_height="match_parent"
+                android:layout_weight=".05"
+                android:background="@drawable/table_content_cell_bg"
+                android:text="Lantai 2 "
+                android:textColor="@android:color/black" />
+
+            <TextView
+                android:id="@+id/lt2RP"
+                android:layout_width="220dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/table_content_cell_bg"
+                android:text="2"
+                android:textColor="@android:color/black" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:gravity="left">
+
+            <TextView
+                android:layout_width="150dp"
+                android:layout_height="match_parent"
+                android:layout_weight=".05"
+                android:background="@drawable/table_content_cell_bg"
+                android:text="File 2 "
+                android:textColor="@android:color/black" />
+
+            <TextView
+                android:id="@+id/lt2FileRP"
+                android:layout_width="220dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/table_content_cell_bg"
+                android:text="2"
+                android:textColor="@android:color/black" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:gravity="left">
+
+            <TextView
+                android:layout_width="150dp"
+                android:layout_height="match_parent"
+                android:layout_weight=".05"
+                android:background="@drawable/table_content_cell_bg"
+                android:text="Lantai 3 "
+                android:textColor="@android:color/black" />
+
+            <TextView
+                android:id="@+id/lt3RP"
+                android:layout_width="220dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/table_content_cell_bg"
+                android:text="2"
+                android:textColor="@android:color/black" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:gravity="left">
+
+            <TextView
+                android:layout_width="150dp"
+                android:layout_height="match_parent"
+                android:layout_weight=".05"
+                android:background="@drawable/table_content_cell_bg"
+                android:text="File 3 "
+                android:textColor="@android:color/black" />
+
+            <TextView
+                android:id="@+id/lt3FileRP"
+                android:layout_width="220dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/table_content_cell_bg"
+                android:text="2"
+                android:textColor="@android:color/black" />
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/R4RP"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:gravity="left">
+
+            <TextView
+
+                android:layout_width="150dp"
+                android:layout_height="match_parent"
+                android:layout_weight=".05"
+                android:background="@drawable/table_content_cell_bg"
+                android:text="Lantai 4 "
+                android:textColor="@android:color/black" />
+
+            <TextView
+                android:id="@+id/lt4RP"
+                android:layout_width="220dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/table_content_cell_bg"
+                android:text="2"
+                android:textColor="@android:color/black" />
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/S4RP"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:gravity="left">
+
+            <TextView
+                android:layout_width="150dp"
+                android:layout_height="match_parent"
+                android:layout_weight=".05"
+                android:background="@drawable/table_content_cell_bg"
+                android:text="File 4 "
+                android:textColor="@android:color/black" />
+
+            <TextView
+                android:id="@+id/lt4FileRP"
+                android:layout_width="220dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/table_content_cell_bg"
+                android:text="2"
+                android:textColor="@android:color/black" />
+        </TableRow>
+
+
+        <TableRow
+            android:id="@+id/R5RP"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:gravity="left">
+
+            <TextView
+                android:layout_width="150dp"
+                android:layout_height="match_parent"
+                android:layout_weight=".05"
+                android:background="@drawable/table_content_cell_bg"
+                android:text="Lantai 5 "
+                android:textColor="@android:color/black" />
+
+            <TextView
+                android:id="@+id/lt5RP"
+                android:layout_width="220dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/table_content_cell_bg"
+                android:text="2"
+                android:textColor="@android:color/black" />
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/S5RP"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:gravity="left">
+
+            <TextView
+                android:layout_width="150dp"
+                android:layout_height="match_parent"
+                android:layout_weight=".05"
+                android:background="@drawable/table_content_cell_bg"
+                android:text="File 5 "
+                android:textColor="@android:color/black" />
+
+            <TextView
+                android:id="@+id/lt5FileRP"
+                android:layout_width="220dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/table_content_cell_bg"
+                android:text="2"
+                android:textColor="@android:color/black" />
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/R6RP"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:gravity="left">
+
+            <TextView
+                android:layout_width="150dp"
+                android:layout_height="match_parent"
+                android:layout_weight=".05"
+                android:background="@drawable/table_content_cell_bg"
+                android:text="Lantai 6 "
+                android:textColor="@android:color/black" />
+
+            <TextView
+                android:id="@+id/lt6RP"
+                android:layout_width="220dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/table_content_cell_bg"
+                android:text="2"
+                android:textColor="@android:color/black" />
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/S6RP"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:gravity="left">
+
+            <TextView
+                android:layout_width="150dp"
+                android:layout_height="match_parent"
+                android:layout_weight=".05"
+                android:background="@drawable/table_content_cell_bg"
+                android:text="File 6 "
+                android:textColor="@android:color/black" />
+
+            <TextView
+                android:id="@+id/lt6FileRP"
+                android:layout_width="220dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/table_content_cell_bg"
+                android:text="2"
+                android:textColor="@android:color/black" />
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/R7RP"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:gravity="left">
+
+            <TextView
+                android:layout_width="150dp"
+                android:layout_height="match_parent"
+                android:layout_weight=".05"
+                android:background="@drawable/table_content_cell_bg"
+                android:text="Lantai 7 "
+                android:textColor="@android:color/black" />
+
+            <TextView
+                android:id="@+id/lt7RP"
+                android:layout_width="220dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/table_content_cell_bg"
+                android:text="2"
+                android:textColor="@android:color/black" />
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/S7RP"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:gravity="left">
+
+            <TextView
+                android:layout_width="150dp"
+                android:layout_height="match_parent"
+                android:layout_weight=".05"
+                android:background="@drawable/table_content_cell_bg"
+                android:text="File 7 "
+                android:textColor="@android:color/black" />
+
+            <TextView
+                android:id="@+id/lt7FileRP"
+                android:layout_width="220dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/table_content_cell_bg"
+                android:text="2"
+                android:textColor="@android:color/black" />
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/R8RP"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:gravity="left">
+
+            <TextView
+                android:layout_width="150dp"
+                android:layout_height="match_parent"
+                android:layout_weight=".05"
+                android:background="@drawable/table_content_cell_bg"
+                android:text="Lantai 8 "
+                android:textColor="@android:color/black" />
+
+            <TextView
+                android:id="@+id/lt8RP"
+                android:layout_width="220dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/table_content_cell_bg"
+                android:text="2"
+                android:textColor="@android:color/black" />
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/S8RP"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:gravity="left">
+
+            <TextView
+                android:layout_width="150dp"
+                android:layout_height="match_parent"
+                android:layout_weight=".05"
+                android:background="@drawable/table_content_cell_bg"
+                android:text="File 8 "
+                android:textColor="@android:color/black" />
+
+            <TextView
+                android:id="@+id/lt8FileRP"
+                android:layout_width="220dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/table_content_cell_bg"
+                android:text="2"
+                android:textColor="@android:color/black" />
+        </TableRow>
+
+
+        <TableRow
+            android:id="@+id/R9RP"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:gravity="left">
+
+            <TextView
+                android:layout_width="150dp"
+                android:layout_height="match_parent"
+                android:layout_weight=".05"
+                android:background="@drawable/table_content_cell_bg"
+                android:text="Lantai Basement "
+                android:textColor="@android:color/black" />
+
+            <TextView
+                android:id="@+id/lt9RP"
+                android:layout_width="220dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/table_content_cell_bg"
+                android:text="2"
+                android:textColor="@android:color/black" />
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/S9RP"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:gravity="left">
+
+            <TextView
+                android:layout_width="150dp"
+                android:layout_height="match_parent"
+                android:layout_weight=".05"
+                android:background="@drawable/table_content_cell_bg"
+                android:text="File Basement "
+                android:textColor="@android:color/black" />
+
+            <TextView
+                android:id="@+id/lt9FileRP"
+                android:layout_width="220dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/table_content_cell_bg"
+                android:text="2"
+                android:textColor="@android:color/black" />
+        </TableRow>
+
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:gravity="left">
+
+            <TextView
+                android:layout_width="150dp"
+                android:layout_height="match_parent"
+                android:layout_weight=".05"
+                android:background="@drawable/table_content_cell_bg"
+                android:text="Keterangan"
+                android:textColor="@android:color/black" />
+
+            <TextView
+                android:id="@+id/keteranganJadwalRP"
+                android:layout_width="220dp"
+                android:layout_height="match_parent"
+                android:background="@drawable/table_content_cell_bg"
+                android:text="Keperluan Keluarga"
+                android:textColor="@android:color/black" />
+        </TableRow>
+
+
+    </TableLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

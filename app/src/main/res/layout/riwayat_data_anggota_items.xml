@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/rv_item_data_anggota"
+    android:orientation="horizontal">
+
+
+    <TextView
+        android:id="@+id/txt_no"
+        android:layout_width="50dp"
+        android:text="No"
+
+        android:layout_height="match_parent"
+        android:layout_gravity="top"
+        android:gravity="center_horizontal"
+        android:textSize="12sp" />
+    <TextView
+        android:id="@+id/txt_nama"
+        android:layout_width="200dp"
+        android:text="Nama"
+        android:layout_toRightOf="@id/txt_no"
+        android:layout_height="match_parent"
+        android:layout_gravity="top"
+        android:gravity="center_horizontal"
+        android:textSize="12sp" />
+
+    <TextView
+        android:id="@+id/txt_jabatan"
+        android:layout_width="250dp"
+        android:layout_toRightOf="@id/txt_nama"
+        android:layout_height="match_parent"
+        android:layout_gravity="top"
+        android:gravity="center_horizontal"
+        android:text="Jabatan"
+        android:textSize="12sp" />
+
+
+
+</RelativeLayout>

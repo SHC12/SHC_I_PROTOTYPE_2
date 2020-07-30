@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".RiwayatActivity">
+    <include
+        android:id="@+id/include4"
+        layout="@layout/toolbar" />
+
+    <LinearLayout
+        android:id="@+id/view_riwayat_absen_petugas"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintTop_toBottomOf="@+id/include4">
+
+        <TextView
+            android:id="@+id/titleRiwayatAbsen"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:text="Riwayat Absen Petugas"
+            android:textAlignment="center"
+            android:textColor="@android:color/black"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/include4" />
+
+        <TextView
+            android:id="@+id/subtitleNamaRiwayat"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Nama"
+            android:textAlignment="center"
+            android:textColor="@android:color/black"
+            android:textSize="25sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/titleAbsen" />
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_riwayat_absen_user"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/subtitleAbsen" />
+
+        <TextView
+            android:id="@+id/textView21"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:text="SF = Shift (0 = Libur)\nST = Status Absen,0 = Belum absen\n 1 = Hadir, 2 = Tidak Hadir, 3 = Sakit"
+            android:textColor="@android:color/black"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/rv_riwayat_absen_user" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnExportRiwayatAbsen"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="ExportRiwayatAbsen"
+            android:layout_margin="20dp"
+            android:layout_gravity="right"
+            android:text="Export PDF"/>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/riwayatAbsenDanru"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintTop_toBottomOf="@+id/view_riwayat_absen_petugas">
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/layout_jadwal_pilih_petugas"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="1dp"
+            android:layout_marginRight="10dp"
+            android:hint="Pilih Petugas"
+            android:textColorHint="@android:color/black"
+            app:boxStrokeColor="@color/colorPrimary"
+            app:hintAnimationEnabled="true"
+            app:hintTextColor="@color/colorPrimary"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout1">
+
+            <AutoCompleteTextView
+                android:id="@+id/in_absen_pilih_petugas"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textColor="@android:color/black"
+                android:textSize="18sp" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnRiwayatAbsenPetugas"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:text="Lihat Riwayat Absen"
+            app:cornerRadius="8dp"
+            app:layout_constraintTop_toBottomOf="@+id/textView21" />
+    </LinearLayout>
+<!--    <LinearLayout-->
+<!--        android:id="@+id/view_patroli_petugas"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:orientation="vertical"-->
+<!--        android:visibility="gone"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/include4">-->
+
+<!--        <TextView-->
+<!--            android:id="@+id/titlePatroli"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_margin="20dp"-->
+<!--            android:text="Patroli Petugas"-->
+<!--            android:textAlignment="center"-->
+<!--            android:textColor="@android:color/black"-->
+<!--            android:textSize="30sp"-->
+<!--            android:textStyle="bold"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toBottomOf="@+id/include4" />-->
+
+<!--        <TextView-->
+<!--            android:id="@+id/subtitlePatroli"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="Pilih data jadwal untuk patroli"-->
+<!--            android:textAlignment="center"-->
+<!--            android:textColor="@android:color/black"-->
+<!--            android:textSize="25sp"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toBottomOf="@+id/titleAbsen" />-->
+
+
+<!--        <androidx.recyclerview.widget.RecyclerView-->
+<!--            android:id="@+id/rv_jadwal_Patroli_user"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_margin="20dp"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toBottomOf="@+id/subtitleAbsen" />-->
+
+<!--        <TextView-->
+<!--            android:id="@+id/keteranganPatroli"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginLeft="20dp"-->
+<!--            android:text="SF = Shift (0 = Libur)\nSP = Status Patroli\n0 = Belum Patroli,1 = Sudah Patroli"-->
+<!--            android:textColor="@android:color/black"-->
+<!--            android:textStyle="bold"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toBottomOf="@+id/rv_jadwal_absen_user" />-->
+
+<!--        <com.google.android.material.button.MaterialButton-->
+<!--            android:id="@+id/btnRiwayatPatroli"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_margin="20dp"-->
+<!--            android:text="Lihat Riwayat Patroli"-->
+<!--            app:cornerRadius="8dp"-->
+<!--            app:layout_constraintTop_toBottomOf="@+id/textView21" />-->
+<!--    </LinearLayout>-->
+<!--    <LinearLayout-->
+<!--        android:id="@+id/view_jadwal_personal_petugas"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:orientation="vertical"-->
+<!--        android:visibility="gone"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/include4">-->
+
+<!--        <TextView-->
+<!--            android:id="@+id/titleJadwalPersonal"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_margin="20dp"-->
+<!--            android:text="Patroli Petugas"-->
+<!--            android:textAlignment="center"-->
+<!--            android:textColor="@android:color/black"-->
+<!--            android:textSize="30sp"-->
+<!--            android:textStyle="bold"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toBottomOf="@+id/include4" />-->
+
+<!--        <TextView-->
+<!--            android:id="@+id/subtitleJadwalPersonal"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="Pilih data jadwal untuk patroli"-->
+<!--            android:textAlignment="center"-->
+<!--            android:textColor="@android:color/black"-->
+<!--            android:textSize="25sp"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toBottomOf="@+id/titleAbsen" />-->
+
+
+<!--        <androidx.recyclerview.widget.RecyclerView-->
+<!--            android:id="@+id/rv_JadwalPersonal_user"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_margin="20dp"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toBottomOf="@+id/subtitleAbsen" />-->
+
+<!--        <TextView-->
+<!--            android:id="@+id/keteranganJadwalPersonal"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginLeft="20dp"-->
+<!--            android:text="SF = Shift (0 = Libur)\nST = Status Absen,0 = Belum absen\n H (Hadir), I (Ijin), S (Sakit), C (Cuti)"-->
+<!--            android:textColor="@android:color/black"-->
+<!--            android:textStyle="bold"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toBottomOf="@+id/rv_jadwal_absen_user" />-->
+
+<!--    </LinearLayout>-->
+
+</androidx.constraintlayout.widget.ConstraintLayout>
