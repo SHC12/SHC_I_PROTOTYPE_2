@@ -2,6 +2,7 @@
 package com.mobile.spk.danru;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import android.app.DatePickerDialog;
 import android.app.ProgressDialog;
@@ -146,10 +147,30 @@ public class UpdateJadwal extends AppCompatActivity {
         getPetugas(petugas,nama);
         getSpinner(gedung, gedung_item);
         getSpinner(shift, shift_item);
-
+        initToolbar();
 
 
     }
+    private void initToolbar() {
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        toolbar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(),HomeActivity.class));
+            }
+        });
+        toolbar.setNavigationIcon(R.drawable.ic_baseline_arrow_back_24);
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
+        getSupportActionBar().setTitle(null);
+
+    }
+
     private void getPetugas(AutoCompleteTextView target,String namas){
         progressDialog.show();
         progressDialog.setMessage("Loading...");

@@ -58,7 +58,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="20dp"
-        android:text="SF = Shift (0 = Libur)\nST = Status Absen,0 = Belum absen\n H (Hadir), I (Ijin), S (Sakit), C (Cuti)"
+        android:text="SF = Shift (0 = Libur)\nST = Status Absen,0 = Belum absen\n 1 = Hadir, 2 = Tidak Hadir, 3 = Sakit"
         android:textColor="@android:color/black"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"

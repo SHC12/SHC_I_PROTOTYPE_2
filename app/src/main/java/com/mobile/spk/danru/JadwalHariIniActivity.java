@@ -1,6 +1,7 @@
 package com.mobile.spk.danru;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -14,6 +15,7 @@ import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.mobile.spk.HomeActivity;
 import com.mobile.spk.R;
 import com.mobile.spk.anggota.DetailRiwayatPatroli;
 import com.mobile.spk.anggota.JadwalUmum;
@@ -116,6 +118,7 @@ public class JadwalHariIniActivity extends AppCompatActivity {
 
         getSpinner(gedung, gedung_item);
         getPetugas(petugas);
+        initToolbar();
     }
 
     public void toJadwalUmumDanru(View view) {
@@ -229,6 +232,28 @@ public class JadwalHariIniActivity extends AppCompatActivity {
                 Toast.makeText(JadwalHariIniActivity.this, ""+t.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
+
+
+    }
+
+    private void initToolbar() {
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        toolbar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(), HomeActivity.class));
+            }
+        });
+        toolbar.setNavigationIcon(R.drawable.ic_baseline_arrow_back_24);
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
+        getSupportActionBar().setTitle(null);
+
     }
 
     public void ExportJadwalPetugas(String id_user) {

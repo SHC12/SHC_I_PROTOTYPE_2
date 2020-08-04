@@ -11,7 +11,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
+import com.mobile.spk.HomeActivity;
 import com.mobile.spk.R;
 import com.mobile.spk.api.ApiClient;
 import com.mobile.spk.api.ApiInterface;
@@ -99,6 +101,7 @@ public class DetailRiwayatPatroli extends AppCompatActivity {
         l7.setText(detail.getLantai7());
         l8.setText(detail.getLantai8());
         l9.setText(detail.getLantaiBasement());
+        ket.setText(detail.getKeterangan());
 
         if (detail.getFile1().equals("")) {
             f1.setText("Tidak Ada File");
@@ -257,6 +260,27 @@ public class DetailRiwayatPatroli extends AppCompatActivity {
             s9.setVisibility(View.GONE);
         }
 
+        initToolbar();
+
+
+    }
+    private void initToolbar() {
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        toolbar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(), HomeActivity.class));
+            }
+        });
+        toolbar.setNavigationIcon(R.drawable.ic_baseline_arrow_back_24);
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
+        getSupportActionBar().setTitle(null);
 
     }
 

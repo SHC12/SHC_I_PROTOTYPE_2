@@ -1,6 +1,7 @@
 package com.mobile.spk.danru;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -24,6 +25,7 @@ import com.androidnetworking.common.Priority;
 import com.androidnetworking.error.ANError;
 import com.androidnetworking.interfaces.JSONArrayRequestListener;
 import com.mobile.spk.CutiActivity;
+import com.mobile.spk.HomeActivity;
 import com.mobile.spk.R;
 import com.mobile.spk.adapter.TableAdapterFormInputJadwalPersonal;
 import com.mobile.spk.adapter.TableAdapterJadwalBulanUmum;
@@ -62,7 +64,7 @@ public class FormInputJadwal extends AppCompatActivity {
 
     private ArrayList<String> petugasList = new ArrayList<>();
     private List<Petugas> dataList = new ArrayList<>();
-    private String[] gedung_item = {"Gedung A1","Gedung A2","Gedung B1", "Gedung B2", "Gedung C"};
+    private String[] gedung_item = {"Gedung A1","Gedung A2","Gedung B1", "Gedung B2", "Gedung C", "Libur"};
     private String[] shift_item = {"Shift 1","Shift 2","Libur"};
 
     private DatePickerDialog datePickerDialog;
@@ -145,7 +147,27 @@ public class FormInputJadwal extends AppCompatActivity {
         getSpinner(shift, shift_item);
         getKodeJadwal();
 
+initToolbar();
 
+    }
+
+    private void initToolbar() {
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        toolbar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(), HomeActivity.class));
+            }
+        });
+        toolbar.setNavigationIcon(R.drawable.ic_baseline_arrow_back_24);
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
+        getSupportActionBar().setTitle(null);
 
     }
 

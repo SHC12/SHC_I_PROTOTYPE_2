@@ -19,6 +19,8 @@ public class ScanBarcodeActivity extends AppCompatActivity {
 
     }
 
+
+
     public void toFormAbsensi(View view) {
         startActivity(new Intent(ScanBarcodeActivity.this, FormAbsensi.class));
     }

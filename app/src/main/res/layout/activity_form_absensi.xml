@@ -141,6 +141,7 @@
             <EditText
                 android:id="@+id/in_shift_absen"
                 android:layout_width="match_parent"
+                android:focusableInTouchMode="false"
                 android:layout_height="match_parent"
                 android:textColor="@android:color/black"
                 android:textSize="18sp" />

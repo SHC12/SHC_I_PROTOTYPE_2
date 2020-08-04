@@ -1,6 +1,7 @@
 package com.mobile.spk.danru;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -13,6 +14,7 @@ import android.widget.Toast;
 
 import com.google.android.material.button.MaterialButton;
 import com.mobile.spk.CutiActivity;
+import com.mobile.spk.HomeActivity;
 import com.mobile.spk.R;
 import com.mobile.spk.RiwayatActivity;
 import com.mobile.spk.adapter.TableAdapterAbsenUser;
@@ -76,6 +78,27 @@ public class JadwalByGedung extends AppCompatActivity {
 
         getDataGedung(nama_gedung);
 
+        initToolbar();
+
+    }
+
+    private void initToolbar() {
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        toolbar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(), HomeActivity.class));
+            }
+        });
+        toolbar.setNavigationIcon(R.drawable.ic_baseline_arrow_back_24);
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
+        getSupportActionBar().setTitle(null);
 
     }
     private void getDataGedung(String nama_gedung) {
