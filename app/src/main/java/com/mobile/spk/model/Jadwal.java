@@ -30,6 +30,9 @@ public class Jadwal implements Parcelable
     @SerializedName("status_absen")
     @Expose
     private String statusAbsen;
+    @SerializedName("kode_absen")
+    @Expose
+    private String kodeAbsen;
     @SerializedName("keterangan")
     @Expose
     private String keterangan;
@@ -58,6 +61,7 @@ public class Jadwal implements Parcelable
         this.lokasi = ((String) in.readValue((String.class.getClassLoader())));
         this.shift = ((String) in.readValue((String.class.getClassLoader())));
         this.statusAbsen = ((String) in.readValue((String.class.getClassLoader())));
+        this.kodeAbsen = ((String) in.readValue((String.class.getClassLoader())));
         this.keterangan = ((String) in.readValue((String.class.getClassLoader())));
     }
 
@@ -76,10 +80,11 @@ public class Jadwal implements Parcelable
      * @param shift
      * @param tanggal
      * @param statusAbsen
+     * @param kodeAbsen
      * @param kodeJadwal
      * @param namaPetugas
      */
-    public Jadwal(Integer no, String kodeJadwal, String namaPetugas, String tanggal, String lokasi, String shift, String statusAbsen, String keterangan) {
+    public Jadwal(Integer no, String kodeJadwal, String namaPetugas, String tanggal, String lokasi, String shift, String statusAbsen, String kodeAbsen, String keterangan) {
         super();
         this.no = no;
         this.kodeJadwal = kodeJadwal;
@@ -88,8 +93,21 @@ public class Jadwal implements Parcelable
         this.lokasi = lokasi;
         this.shift = shift;
         this.statusAbsen = statusAbsen;
+        this.kodeAbsen = kodeAbsen;
         this.keterangan = keterangan;
     }
+    public static Creator<Jadwal> getCREATOR() {
+        return CREATOR;
+    }
+    public String getKodeAbsen() {
+        return kodeAbsen;
+    }
+
+    public void setKodeAbsen(String kodeAbsen) {
+        this.kodeAbsen = kodeAbsen;
+    }
+
+
 
     public Integer getNo() {
         return no;
@@ -163,6 +181,7 @@ public class Jadwal implements Parcelable
         dest.writeValue(lokasi);
         dest.writeValue(shift);
         dest.writeValue(statusAbsen);
+        dest.writeValue(kodeAbsen);
         dest.writeValue(keterangan);
     }
 

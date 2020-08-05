@@ -46,41 +46,47 @@ public class TableAdapterJadwalPetugas extends RecyclerView.Adapter {
 
         if (rowPos == 0) {
 
-            rowViewHolder.txtNama.setBackgroundResource(R.drawable.table_header_cell_bg);
+            rowViewHolder.txtSF.setBackgroundResource(R.drawable.table_header_cell_bg);
             rowViewHolder.txtKode.setBackgroundResource(R.drawable.table_header_cell_bg);
             rowViewHolder.txtTanggal.setBackgroundResource(R.drawable.table_header_cell_bg);
+            rowViewHolder.txtST.setBackgroundResource(R.drawable.table_header_cell_bg);
 
 
 
-            rowViewHolder.txtNama.setTextColor(Color.WHITE);
+            rowViewHolder.txtSF.setTextColor(Color.WHITE);
             rowViewHolder.txtKode.setTextColor(Color.WHITE);
             rowViewHolder.txtTanggal.setTextColor(Color.WHITE);
+            rowViewHolder.txtST.setTextColor(Color.WHITE);
 
 
 
             rowViewHolder.txtKode.setText("Kode");
             rowViewHolder.txtTanggal.setText("Tanggal");
-            rowViewHolder.txtNama.setText("Petugas");
+            rowViewHolder.txtSF.setText("SF");
+            rowViewHolder.txtST.setText("ST");
 
 
         } else {
             Jadwal modal = listData.get(rowPos - 1);
 
-            rowViewHolder.txtNama.setBackgroundResource(R.drawable.table_content_cell_bg);
+            rowViewHolder.txtSF.setBackgroundResource(R.drawable.table_content_cell_bg);
             rowViewHolder.txtKode.setBackgroundResource(R.drawable.table_content_cell_bg);
             rowViewHolder.txtTanggal.setBackgroundResource(R.drawable.table_content_cell_bg);
+            rowViewHolder.txtST.setBackgroundResource(R.drawable.table_content_cell_bg);
 
 
 
-            rowViewHolder.txtNama.setTextColor(Color.BLACK);
+            rowViewHolder.txtSF.setTextColor(Color.BLACK);
             rowViewHolder.txtKode.setTextColor(Color.BLACK);
             rowViewHolder.txtTanggal.setTextColor(Color.BLACK);
+            rowViewHolder.txtST.setTextColor(Color.BLACK);
 
 
 
             rowViewHolder.txtKode.setText(modal.getKodeJadwal() + "");
             rowViewHolder.txtTanggal.setText(modal.getTanggal()+"");
-            rowViewHolder.txtNama.setText(modal.getNamaPetugas() + "");
+            rowViewHolder.txtSF.setText(modal.getShift() + "");
+            rowViewHolder.txtST.setText(modal.getKodeAbsen()+ "");
 
 
         }
@@ -97,7 +103,8 @@ public class TableAdapterJadwalPetugas extends RecyclerView.Adapter {
     public class RowViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
 
         TextView txtTanggal;
-        TextView txtNama;
+        TextView txtSF;
+        TextView txtST;
         TextView txtKode;
         RelativeLayout rvItemsJadwalPetugas;
         TableAdapterJadwalPetugas.RecyclerViewClickListener mListener;
@@ -107,7 +114,8 @@ public class TableAdapterJadwalPetugas extends RecyclerView.Adapter {
           
             txtTanggal = itemView.findViewById(R.id.txt_tanggal);
             txtKode= itemView.findViewById(R.id.txt_kode);
-            txtNama = itemView.findViewById(R.id.txt_petugas);
+            txtSF = itemView.findViewById(R.id.txt_petugas_sf);
+            txtST = itemView.findViewById(R.id.txt_petugas_st);
             rvItemsJadwalPetugas = itemView.findViewById(R.id.rv_item_jadwal_petugas);
             mListener = listener;
             rvItemsJadwalPetugas.setOnClickListener(this);
